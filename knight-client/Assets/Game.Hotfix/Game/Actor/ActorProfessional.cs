@@ -9,9 +9,9 @@ namespace Game
     [HotfixSBGroup("GameConfig")]
     public partial class ActorProfessional : HotfixSerializerBinary
     {
-        public int      ID;
-        public int      HeroID;
-        public string   Name;
-        public string   Desc;
+        public int ID;
+        public int HeroID;
+        public string Name;
+        public string Desc;
     }
 }

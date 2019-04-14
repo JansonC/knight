@@ -1,36 +1,33 @@
 ﻿using Knight.Hotfix.Core;
-using System;
-using System.Collections.Generic;
 using UnityEngine.UI;
-using Knight.Core;
 
 namespace Game
 {
     [DataBinding]
     public class LoginViewModel : ViewModel
     {
-        private string      mAccountName    = "Test111";
-        private string      mPassword       = "xxxxxxx";
+        private string mAccountName = "Knight";
+        private string mPassword = "knight666";
 
         [DataBinding]
-        public  string      AccountName
+        public string AccountName
         {
-            get { return mAccountName;  }
+            get { return mAccountName; }
             set
             {
                 mAccountName = value;
-                this.PropChanged("AccountName");
+                PropChanged("AccountName");
             }
         }
 
         [DataBinding]
-        public  string      Password
+        public string Password
         {
-            get { return mPassword;     }
+            get { return mPassword; }
             set
             {
                 mPassword = value;
-                this.PropChanged("Password");
+                PropChanged("Password");
             }
         }
     }

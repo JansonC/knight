@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Knight.Core;
 using Knight.Hotfix.Core;
@@ -13,60 +11,58 @@ namespace Game
     {
         public class BackCache
         {
-            public string               ViewName;
-            public string               ViewGUID;
-            public View.State           State;
+            public string ViewName;
+            public string ViewGUID;
+            public View.State State;
         }
 
-        private static FrameManager     __instance;
-        public  static FrameManager     Instance { get { return __instance; } }
-        
-        [HotfixBinding("FramePanel")]
-        public  RectTransform           FramePanel;
-        [HotfixBinding("PagePanel")]
-        public  RectTransform           PagePanel;
+        public static FrameManager Instance { get; private set; }
+
+        [HotfixBinding("FramePanel")] public RectTransform FramePanel;
+        [HotfixBinding("PagePanel")] public RectTransform PagePanel;
 
         /// <summary>
         /// 回退的缓存
         /// </summary>
-        private Stack<BackCache>        mBackCaches;
+        private Stack<BackCache> mBackCaches;
 
         public override void Awake()
         {
-            __instance = this;
-            
-            // 初始化这个Page节点
-            ViewManager.Instance.FrameRoot = this.FramePanel.gameObject;
-            ViewManager.Instance.PageRoot  = this.PagePanel.gameObject;
+            Instance = this;
 
-            this.mBackCaches = new Stack<BackCache>();
+            // 初始化这个Page节点
+            ViewManager.Instance.FrameRoot = FramePanel.gameObject;
+            ViewManager.Instance.PageRoot = PagePanel.gameObject;
+
+            mBackCaches = new Stack<BackCache>();
         }
 
         public void CloseAllPages()
         {
             ViewManager.Instance.CloseAllPageViews();
-            this.mBackCaches.Clear();
+            mBackCaches.Clear();
         }
 
         public BackCache GetLastBackCache()
         {
-            if (this.mBackCaches == null || this.mBackCaches.Count == 0) return null;
-            var rBackcache = this.mBackCaches.Peek();
+            if (mBackCaches == null || mBackCaches.Count == 0) return null;
+            var rBackcache = mBackCaches.Peek();
             if (rBackcache == null) return null;
-            return this.mBackCaches.Pop();
+            return mBackCaches.Pop();
         }
 
         public void BackView(Action<View> rOpenCompleted = null)
         {
-            var rBackCache = this.GetLastBackCache();
+            var rBackCache = GetLastBackCache();
             if (rBackCache == null)
             {
                 UtilTool.SafeExecute(rOpenCompleted, null);
                 return;
             }
+
             ViewManager.Instance.CloseView(rBackCache.ViewGUID);
 
-            rBackCache = this.GetLastBackCache();
+            rBackCache = GetLastBackCache();
             if (rBackCache == null)
             {
                 UtilTool.SafeExecute(rOpenCompleted, null);
@@ -74,9 +70,9 @@ namespace Game
             }
 
             if (rBackCache.State == View.State.Popup)
-                this.OpenPopupUI(rBackCache.ViewName, rOpenCompleted);
+                OpenPopupUI(rBackCache.ViewName, rOpenCompleted);
             else
-                this.OpenPageUI(rBackCache.ViewName, rBackCache.State, rOpenCompleted);
+                OpenPageUI(rBackCache.ViewName, rBackCache.State, rOpenCompleted);
         }
 
         public async Task<View> OpenPageUIAsync(string rViewName, View.State rState, Action<View> rOpenCompleted = null)
@@ -84,29 +80,31 @@ namespace Game
             var rView = await ViewManager.Instance.OpenAsync(rViewName, rState, rOpenCompleted);
             if (rView != null && rView.IsBackCache)
             {
-                this.mBackCaches.Push(new BackCache()
+                mBackCaches.Push(new BackCache()
                 {
                     ViewName = rView.ViewName,
                     ViewGUID = rView.GUID,
-                    State    = rView.CurState,
+                    State = rView.CurState,
                 });
             }
+
             return rView;
         }
 
         public void OpenPageUI(string rViewName, View.State rState, Action<View> rOpenCompleted = null)
         {
-            ViewManager.Instance.Open(rViewName, rState, (rView)=> 
+            ViewManager.Instance.Open(rViewName, rState, (rView) =>
             {
                 if (rView != null && rView.IsBackCache)
                 {
-                    this.mBackCaches.Push(new BackCache()
+                    mBackCaches.Push(new BackCache()
                     {
                         ViewName = rView.ViewName,
                         ViewGUID = rView.GUID,
                         State = rView.CurState,
                     });
                 }
+
                 UtilTool.SafeExecute(rOpenCompleted, rView);
             });
         }
@@ -116,29 +114,31 @@ namespace Game
             var rView = await ViewManager.Instance.OpenAsync(rViewName, View.State.Popup, rOpenCompleted);
             if (rView != null && rView.IsBackCache)
             {
-                this.mBackCaches.Push(new BackCache()
+                mBackCaches.Push(new BackCache()
                 {
                     ViewName = rView.ViewName,
                     ViewGUID = rView.GUID,
                     State = rView.CurState,
                 });
             }
+
             return rView;
         }
 
         public void OpenPopupUI(string rViewName, Action<View> rOpenCompleted = null)
         {
-            ViewManager.Instance.Open(rViewName, View.State.Popup, (rView)=> 
+            ViewManager.Instance.Open(rViewName, View.State.Popup, (rView) =>
             {
                 if (rView != null && rView.IsBackCache)
                 {
-                    this.mBackCaches.Push(new BackCache()
+                    mBackCaches.Push(new BackCache()
                     {
                         ViewName = rView.ViewName,
                         ViewGUID = rView.GUID,
                         State = rView.CurState,
                     });
                 }
+
                 UtilTool.SafeExecute(rOpenCompleted, rView);
             });
         }

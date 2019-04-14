@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Game
+﻿namespace Game
 {
     public static class LogicUtilTool
     {
@@ -9,7 +6,7 @@ namespace Game
         {
             if (nCount >= 10000)
             {
-                return string.Format("{0:f2}万", (nCount / 10000.0f));
+                return string.Format("{0:f2}万", nCount / 10000.0f);
             }
             else if (nCount >= 100000000)
             {

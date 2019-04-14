@@ -1,5 +1,4 @@
 using System.IO;
-using System.Collections.Generic;
 using Knight.Hotfix.Core;
 using Knight.Core;
 
@@ -8,150 +7,154 @@ using Knight.Core;
 /// </summary>
 namespace Game
 {
-	public static class CommonSerializer
-	{
-		public static void Serialize(this BinaryWriter rWriter, Dict<int, Game.ActorAvatar> value)
-		{
-			var bValid = (null != value);
-			rWriter.Serialize(bValid);
-			if (!bValid) return;
+    public static class CommonSerializer
+    {
+        public static void Serialize(this BinaryWriter rWriter, Dict<int, ActorAvatar> value)
+        {
+            var bValid = null != value;
+            rWriter.Serialize(bValid);
+            if (!bValid) return;
 
-			rWriter.Serialize(value.Count);
-			foreach(var rPair in value)
-			{
-				rWriter.Serialize(rPair.Key);
-				rWriter.Serialize(rPair.Value);
-			}
-		}
+            rWriter.Serialize(value.Count);
+            foreach (var rPair in value)
+            {
+                rWriter.Serialize(rPair.Key);
+                rWriter.Serialize(rPair.Value);
+            }
+        }
 
-		public static Dict<int, Game.ActorAvatar> Deserialize(this BinaryReader rReader, Dict<int, Game.ActorAvatar> value)
-		{
-			var bValid = rReader.Deserialize(default(bool));
-			if (!bValid) return null;
+        public static Dict<int, ActorAvatar> Deserialize(this BinaryReader rReader, Dict<int, ActorAvatar> value)
+        {
+            var bValid = rReader.Deserialize(default(bool));
+            if (!bValid) return null;
 
-			var nCount  = rReader.Deserialize(default(int));
-			var rResult = new Dict<int, Game.ActorAvatar>();
-			for (int nIndex = 0; nIndex < nCount; ++ nIndex)
-			{
-				var rKey   = rReader.Deserialize(default(int));
-				var rValue = rReader.Deserialize(default(Game.ActorAvatar));
-				rResult.Add(rKey, rValue);
-			}
-			return rResult;
-		}
+            var nCount = rReader.Deserialize(default(int));
+            var rResult = new Dict<int, ActorAvatar>();
+            for (int nIndex = 0; nIndex < nCount; ++nIndex)
+            {
+                var rKey = rReader.Deserialize(default(int));
+                var rValue = rReader.Deserialize(default(ActorAvatar));
+                rResult.Add(rKey, rValue);
+            }
 
-		public static void Serialize(this BinaryWriter rWriter, Dict<int, Game.ActorHero> value)
-		{
-			var bValid = (null != value);
-			rWriter.Serialize(bValid);
-			if (!bValid) return;
+            return rResult;
+        }
 
-			rWriter.Serialize(value.Count);
-			foreach(var rPair in value)
-			{
-				rWriter.Serialize(rPair.Key);
-				rWriter.Serialize(rPair.Value);
-			}
-		}
+        public static void Serialize(this BinaryWriter rWriter, Dict<int, ActorHero> value)
+        {
+            var bValid = null != value;
+            rWriter.Serialize(bValid);
+            if (!bValid) return;
 
-		public static Dict<int, Game.ActorHero> Deserialize(this BinaryReader rReader, Dict<int, Game.ActorHero> value)
-		{
-			var bValid = rReader.Deserialize(default(bool));
-			if (!bValid) return null;
+            rWriter.Serialize(value.Count);
+            foreach (var rPair in value)
+            {
+                rWriter.Serialize(rPair.Key);
+                rWriter.Serialize(rPair.Value);
+            }
+        }
 
-			var nCount  = rReader.Deserialize(default(int));
-			var rResult = new Dict<int, Game.ActorHero>();
-			for (int nIndex = 0; nIndex < nCount; ++ nIndex)
-			{
-				var rKey   = rReader.Deserialize(default(int));
-				var rValue = rReader.Deserialize(default(Game.ActorHero));
-				rResult.Add(rKey, rValue);
-			}
-			return rResult;
-		}
+        public static Dict<int, ActorHero> Deserialize(this BinaryReader rReader, Dict<int, ActorHero> value)
+        {
+            var bValid = rReader.Deserialize(default(bool));
+            if (!bValid) return null;
 
-		public static void Serialize(this BinaryWriter rWriter, Dict<int, Game.ActorProfessional> value)
-		{
-			var bValid = (null != value);
-			rWriter.Serialize(bValid);
-			if (!bValid) return;
+            var nCount = rReader.Deserialize(default(int));
+            var rResult = new Dict<int, ActorHero>();
+            for (int nIndex = 0; nIndex < nCount; ++nIndex)
+            {
+                var rKey = rReader.Deserialize(default(int));
+                var rValue = rReader.Deserialize(default(ActorHero));
+                rResult.Add(rKey, rValue);
+            }
 
-			rWriter.Serialize(value.Count);
-			foreach(var rPair in value)
-			{
-				rWriter.Serialize(rPair.Key);
-				rWriter.Serialize(rPair.Value);
-			}
-		}
+            return rResult;
+        }
 
-		public static Dict<int, Game.ActorProfessional> Deserialize(this BinaryReader rReader, Dict<int, Game.ActorProfessional> value)
-		{
-			var bValid = rReader.Deserialize(default(bool));
-			if (!bValid) return null;
+        public static void Serialize(this BinaryWriter rWriter, Dict<int, ActorProfessional> value)
+        {
+            var bValid = null != value;
+            rWriter.Serialize(bValid);
+            if (!bValid) return;
 
-			var nCount  = rReader.Deserialize(default(int));
-			var rResult = new Dict<int, Game.ActorProfessional>();
-			for (int nIndex = 0; nIndex < nCount; ++ nIndex)
-			{
-				var rKey   = rReader.Deserialize(default(int));
-				var rValue = rReader.Deserialize(default(Game.ActorProfessional));
-				rResult.Add(rKey, rValue);
-			}
-			return rResult;
-		}
+            rWriter.Serialize(value.Count);
+            foreach (var rPair in value)
+            {
+                rWriter.Serialize(rPair.Key);
+                rWriter.Serialize(rPair.Value);
+            }
+        }
 
-		public static void Serialize(this BinaryWriter rWriter, Dict<int, Game.StageConfig> value)
-		{
-			var bValid = (null != value);
-			rWriter.Serialize(bValid);
-			if (!bValid) return;
+        public static Dict<int, ActorProfessional> Deserialize(this BinaryReader rReader,
+            Dict<int, ActorProfessional> value)
+        {
+            var bValid = rReader.Deserialize(default(bool));
+            if (!bValid) return null;
 
-			rWriter.Serialize(value.Count);
-			foreach(var rPair in value)
-			{
-				rWriter.Serialize(rPair.Key);
-				rWriter.Serialize(rPair.Value);
-			}
-		}
+            var nCount = rReader.Deserialize(default(int));
+            var rResult = new Dict<int, ActorProfessional>();
+            for (int nIndex = 0; nIndex < nCount; ++nIndex)
+            {
+                var rKey = rReader.Deserialize(default(int));
+                var rValue = rReader.Deserialize(default(ActorProfessional));
+                rResult.Add(rKey, rValue);
+            }
 
-		public static Dict<int, Game.StageConfig> Deserialize(this BinaryReader rReader, Dict<int, Game.StageConfig> value)
-		{
-			var bValid = rReader.Deserialize(default(bool));
-			if (!bValid) return null;
+            return rResult;
+        }
 
-			var nCount  = rReader.Deserialize(default(int));
-			var rResult = new Dict<int, Game.StageConfig>();
-			for (int nIndex = 0; nIndex < nCount; ++ nIndex)
-			{
-				var rKey   = rReader.Deserialize(default(int));
-				var rValue = rReader.Deserialize(default(Game.StageConfig));
-				rResult.Add(rKey, rValue);
-			}
-			return rResult;
-		}
+        public static void Serialize(this BinaryWriter rWriter, Dict<int, StageConfig> value)
+        {
+            var bValid = null != value;
+            rWriter.Serialize(bValid);
+            if (!bValid) return;
 
-		public static void Serialize(this BinaryWriter rWriter, float[] value)
-		{
-			var bValid = (null != value);
-			rWriter.Serialize(bValid);
-			if (!bValid) return;
+            rWriter.Serialize(value.Count);
+            foreach (var rPair in value)
+            {
+                rWriter.Serialize(rPair.Key);
+                rWriter.Serialize(rPair.Value);
+            }
+        }
 
-			rWriter.Serialize(value.Length);
-			for (int nIndex = 0; nIndex < value.Length; nIndex++)
-				rWriter.Serialize(value[nIndex]);
-		}
+        public static Dict<int, StageConfig> Deserialize(this BinaryReader rReader, Dict<int, StageConfig> value)
+        {
+            var bValid = rReader.Deserialize(default(bool));
+            if (!bValid) return null;
 
-		public static float[] Deserialize(this BinaryReader rReader, float[] value)
-		{
-			var bValid = rReader.Deserialize(default(bool));
-			if (!bValid) return null;
+            var nCount = rReader.Deserialize(default(int));
+            var rResult = new Dict<int, StageConfig>();
+            for (int nIndex = 0; nIndex < nCount; ++nIndex)
+            {
+                var rKey = rReader.Deserialize(default(int));
+                var rValue = rReader.Deserialize(default(StageConfig));
+                rResult.Add(rKey, rValue);
+            }
 
-			var nCount  = rReader.Deserialize(default(int));
-			var rResult = new float[nCount];
-			for (int nIndex = 0; nIndex < nCount; nIndex++)
-				rResult[nIndex] = rReader.Deserialize(default(float));
-			return rResult;
-		}
+            return rResult;
+        }
 
-	}
+        public static void Serialize(this BinaryWriter rWriter, float[] value)
+        {
+            var bValid = (null != value);
+            rWriter.Serialize(bValid);
+            if (!bValid) return;
+
+            rWriter.Serialize(value.Length);
+            for (int nIndex = 0; nIndex < value.Length; nIndex++)
+                rWriter.Serialize(value[nIndex]);
+        }
+
+        public static float[] Deserialize(this BinaryReader rReader, float[] value)
+        {
+            var bValid = rReader.Deserialize(default(bool));
+            if (!bValid) return null;
+
+            var nCount = rReader.Deserialize(default(int));
+            var rResult = new float[nCount];
+            for (int nIndex = 0; nIndex < nCount; nIndex++)
+                rResult[nIndex] = rReader.Deserialize(default(float));
+            return rResult;
+        }
+    }
 }

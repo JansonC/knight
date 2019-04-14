@@ -3,8 +3,6 @@
 //        Email: hgplan@126.com
 //======================================================================
 using Knight.Hotfix.Core;
-using System;
-using System.Collections.Generic;
 
 namespace Game
 {
@@ -14,22 +12,26 @@ namespace Game
         /// <summary>
         /// 关卡ID
         /// </summary>
-        public int      StageID;
+        public int StageID;
+
         /// <summary>
         /// 关卡对应的AB路径
         /// </summary>
-        public string   SceneABPath;
+        public string SceneABPath;
+
         /// <summary>
         /// 关卡对应的场景资源路径
         /// </summary>
-        public string   ScenePath;
+        public string ScenePath;
+
         /// <summary>
         /// 角色的初始位置
         /// </summary>
-        public float[]  BornPos;
+        public float[] BornPos;
+
         /// <summary>
         /// 相机的初始化参数
         /// </summary>
-        public float[]  CameraSettings;
+        public float[] CameraSettings;
     }
 }

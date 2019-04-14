@@ -3,11 +3,10 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 
 namespace Knight.Core
 {
-	public interface ILoadingView
+    public interface ILoadingView
     {
         void ShowLoading(string rTextTips);
         void ShowLoading(float rIntervalTime, string rTextTips);
@@ -15,11 +14,10 @@ namespace Knight.Core
         void HideLoading();
         void SetTips(string rTextTips);
     }
-	
+
     public class GameLoading : MonoBehaviour
     {
-        private static GameLoading __instance;
-        public  static GameLoading Instance { get { return __instance; } }
+        public static GameLoading Instance { get; private set; }
 
         /// <summary>
         /// 加载界面
@@ -28,9 +26,9 @@ namespace Knight.Core
 
         void Awake()
         {
-            if (__instance == null)
+            if (Instance == null)
             {
-                __instance = this;
+                Instance = this;
             }
         }
 
@@ -39,29 +37,27 @@ namespace Knight.Core
         /// </summary>
         public void StartLoading(float rIntervalTime, string rTextTips = "")
         {
-            this.LoadingView.ShowLoading(rIntervalTime, rTextTips);
+            LoadingView.ShowLoading(rIntervalTime, rTextTips);
         }
 
         public void StartLoading(string rTextTips = "")
         {
-            this.LoadingView.ShowLoading(rTextTips);
+            LoadingView.ShowLoading(rTextTips);
         }
 
         public void SetTips(string rTextTips)
         {
-            this.LoadingView.SetTips(rTextTips);
+            LoadingView.SetTips(rTextTips);
         }
 
         public void SetLoadingProgress(float fProgressValue)
         {
-            this.LoadingView.SetLoadingProgress(fProgressValue);
+            LoadingView.SetLoadingProgress(fProgressValue);
         }
-        
+
         public void Hide()
         {
-            this.LoadingView.HideLoading();
+            LoadingView.HideLoading();
         }
     }
 }
-
-

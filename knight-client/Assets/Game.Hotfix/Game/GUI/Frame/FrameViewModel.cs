@@ -1,10 +1,5 @@
-﻿using Knight.Core;
-using Knight.Hotfix.Core;
-using System;
+﻿using Knight.Hotfix.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine.UI;
 
 namespace Game
@@ -12,52 +7,47 @@ namespace Game
     [DataBinding]
     public class MainFrameTabItem : ViewModel
     {
-        private string                  mName;
-
-        [DataBinding]
-        public  string  Name
-        {
-            get { return mName;     }
-            set { mName = value;    }
-        }
+        [DataBinding] public string Name { get; set; }
     }
 
     [DataBinding]
     public class FrameViewModel : ViewModel
     {
-        private string                  mPlayerName;
-        private string                  mCoinCount;
+        private string mPlayerName;
+        private string mCoinCount;
 
-        private List<MainFrameTabItem>  mMainFrameTab;
+        private List<MainFrameTabItem> mMainFrameTab;
 
         [DataBinding]
-        public  string  PlayerName
+        public string PlayerName
         {
-            get { return mPlayerName;               }
+            get { return mPlayerName; }
             set
             {
                 mPlayerName = value;
-                this.PropChanged("PlayerName");
+                PropChanged("PlayerName");
             }
         }
+
         [DataBinding]
-        public string   CoinCount
+        public string CoinCount
         {
-            get { return mCoinCount;                }
+            get { return mCoinCount; }
             set
             {
                 mCoinCount = value;
-                this.PropChanged("CoinCount");
+                PropChanged("CoinCount");
             }
         }
+
         [DataBinding]
-        public List<MainFrameTabItem>   MainFrameTab
+        public List<MainFrameTabItem> MainFrameTab
         {
-            get { return mMainFrameTab;             }
+            get { return mMainFrameTab; }
             set
             {
                 mMainFrameTab = value;
-                this.PropChanged("MainFrameTab");
+                PropChanged("MainFrameTab");
             }
         }
     }

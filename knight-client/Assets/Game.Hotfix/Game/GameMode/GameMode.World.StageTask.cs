@@ -1,6 +1,4 @@
-﻿using Knight.Framework;
-using Knight.Hotfix.Core;
-using System.Collections;
+﻿using Knight.Hotfix.Core;
 using System.Threading.Tasks;
 using UnityEngine;
 using Knight.Core;
@@ -19,12 +17,12 @@ namespace Game
 
             public StageTask_LoadAssets(GameMode_World rGameMode)
             {
-                this.GameMode = rGameMode;
+                GameMode = rGameMode;
             }
 
             protected override bool OnInit()
             {
-                this.name = "LoadAssets";
+                name = "LoadAssets";
                 return true;
             }
 
@@ -43,12 +41,12 @@ namespace Game
 
             public StageTask_InitData(GameMode_World rGameMode)
             {
-                this.GameMode = rGameMode;
+                GameMode = rGameMode;
             }
 
             protected override bool OnInit()
             {
-                this.name = "InitData";
+                name = "InitData";
                 return true;
             }
 

@@ -3,9 +3,7 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 using System.Threading.Tasks;
-using Knight.Framework;
 using UnityEngine.UI;
 
 namespace Game

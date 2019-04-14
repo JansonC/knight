@@ -3,7 +3,6 @@
 //        Email: hgplan@126.com
 //======================================================================
 using Knight.Hotfix.Core;
-using UnityEngine;
 
 namespace Game
 {
@@ -13,9 +12,9 @@ namespace Game
     [HotfixSBGroup("GameConfig")]
     public partial class ActorAvatar : HotfixSerializerBinary
     {
-        public int      ID;
-        public string   AvatarName;
-        public string   ABPath;
-        public string   AssetName;
+        public int ID;
+        public string AvatarName;
+        public string ABPath;
+        public string AssetName;
     }
 }
