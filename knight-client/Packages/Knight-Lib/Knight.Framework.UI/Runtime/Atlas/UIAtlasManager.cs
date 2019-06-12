@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Knight.Core;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityFx.Async;
 
@@ -11,11 +9,11 @@ namespace UnityEngine.UI
     {
         public class SpriteRequest : AsyncRequest<SpriteRequest>
         {
-            public Sprite   Sprite;
-            public Texture  Texture;
+            public Sprite Sprite;
+            public Texture Texture;
 
-            public string   Path;
-            public string   AssetName;
+            public string Path;
+            public string AssetName;
 
             public SpriteRequest(string rPath, string rAssetName)
             {
@@ -68,6 +66,7 @@ namespace UnityEngine.UI
             {
                 return LoadSprite_IconsMode_Sync(rRequest);
             }
+
             return null;
         }
 
@@ -81,18 +80,21 @@ namespace UnityEngine.UI
             {
                 rABPath = rSearchAtlas.ABName + "/" + rSpriteName.ToLower() + ".ab";
             }
+
             AssetLoader.Instance.UnloadAsset(rABPath);
         }
 
         private SpriteRequest LoadSprite_AtlasMode_Sync(SpriteRequest rSpriteRequest)
         {
             bool bIsSumilate = AssetLoader.Instance.IsSumilateMode_GUI();
-            var rLoadRequest = AssetLoader.Instance.LoadAsset(rSpriteRequest.Path, rSpriteRequest.AssetName, bIsSumilate);
+            var rLoadRequest =
+                AssetLoader.Instance.LoadAsset(rSpriteRequest.Path, rSpriteRequest.AssetName, bIsSumilate);
 
             if (rLoadRequest.Asset == null)
             {
                 return null;
             }
+
             if (!bIsSumilate)
             {
                 rSpriteRequest.Sprite = rLoadRequest.Asset as Sprite;
@@ -100,8 +102,10 @@ namespace UnityEngine.UI
             else
             {
                 Texture2D rTex2D = rLoadRequest.Asset as Texture2D;
-                rSpriteRequest.Sprite = Sprite.Create(rTex2D, new Rect(0, 0, rTex2D.width, rTex2D.height), new Vector2(0.5f, 0.5f));
+                rSpriteRequest.Sprite = Sprite.Create(rTex2D, new Rect(0, 0, rTex2D.width, rTex2D.height),
+                    new Vector2(0.5f, 0.5f));
             }
+
             return rSpriteRequest;
         }
 
@@ -109,22 +113,26 @@ namespace UnityEngine.UI
         {
             string rABPath = rSpriteRequest.Path + "/" + rSpriteRequest.AssetName.ToLower() + ".ab";
 
-            var rLoadRequest = AssetLoader.Instance.LoadAsset(rABPath, rSpriteRequest.AssetName, AssetLoader.Instance.IsSumilateMode_GUI());
+            var rLoadRequest = AssetLoader.Instance.LoadAsset(rABPath, rSpriteRequest.AssetName,
+                AssetLoader.Instance.IsSumilateMode_GUI());
             if (rLoadRequest == null || rLoadRequest.Asset == null)
             {
                 return null;
             }
+
             rSpriteRequest.Texture = rLoadRequest.Asset as Texture2D;
             return rSpriteRequest;
         }
 
         private SpriteRequest LoadSprite_IconsMode_Sync(SpriteRequest rSpriteRequest)
         {
-            var rLoadRequest = AssetLoader.Instance.LoadAsset(rSpriteRequest.Path, rSpriteRequest.AssetName, AssetLoader.Instance.IsSumilateMode_GUI());
+            var rLoadRequest = AssetLoader.Instance.LoadAsset(rSpriteRequest.Path, rSpriteRequest.AssetName,
+                AssetLoader.Instance.IsSumilateMode_GUI());
             if (rLoadRequest == null || rLoadRequest.Asset == null)
             {
                 return null;
             }
+
             rSpriteRequest.Sprite = rLoadRequest.Asset as Sprite;
             return rSpriteRequest;
         }
@@ -135,10 +143,13 @@ namespace UnityEngine.UI
 
             for (int i = 0; i < this.Atlases.Count; i++)
             {
-                int nIndex = this.Atlases[i].Sprites.FindIndex((rItem)=> { return rItem.Equals(rSpriteName); });
+                int nIndex = this.Atlases[i].Sprites.FindIndex((rItem) => { return rItem.Equals(rSpriteName); });
                 if (nIndex >= 0)
+                {
                     return this.Atlases[i];
+                }
             }
+
             return null;
         }
     }

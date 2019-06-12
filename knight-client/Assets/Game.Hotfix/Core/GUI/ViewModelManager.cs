@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Knight.Core;
 using UnityEngine.UI;
 
@@ -45,6 +44,7 @@ namespace Knight.Hotfix.Core
 
                 this.mViewModels.Add(rViewModelClassName, rViewModel);
             }
+
             return rViewModel;
         }
 

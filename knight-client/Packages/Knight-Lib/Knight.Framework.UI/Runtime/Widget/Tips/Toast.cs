@@ -2,30 +2,27 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 using Knight.Core;
 
 namespace UnityEngine.UI
 {
     public class Toast : MonoBehaviour
     {
-        private static Toast     __instance;
-        public  static Toast     Instance { get { return __instance; } }
-                                 
-        public Image             TipBG;
-        public Text              TipText;
-        public CanvasGroup       TipGroup;
-                                 
+        public static Toast Instance { get; private set; }
+
+        public Image TipBG;
+        public Text TipText;
+        public CanvasGroup TipGroup;
+
         private CoroutineHandler mCoroutineHandler;
 
-        void Awake()
+       private void Awake()
         {
-            if (__instance == null)
+            if (Instance == null)
             {
-                __instance = this;
-                this.gameObject.SetActive(false);
+                Instance = this;
+                gameObject.SetActive(false);
             }
         }
 
@@ -36,24 +33,25 @@ namespace UnityEngine.UI
                 CoroutineManager.Instance.Stop(mCoroutineHandler);
                 mCoroutineHandler = null;
             }
+
             mCoroutineHandler = CoroutineManager.Instance.StartHandler(StartAnim(rTextTip, rTimeLength));
         }
 
         private IEnumerator StartAnim(string rTextTip, float rTimeLength)
         {
-            this.gameObject.SetActive(true);
-            this.TipText.text = rTextTip;
+            gameObject.SetActive(true);
+            TipText.text = rTextTip;
             yield return 0;
 
             float rCurTime = 0.0f;
             yield return new WaitUntil(() =>
             {
-                this.TipGroup.alpha = Mathf.Lerp(1, 0, Mathf.InverseLerp(0, rTimeLength, rCurTime));
+                TipGroup.alpha = Mathf.Lerp(1, 0, Mathf.InverseLerp(0, rTimeLength, rCurTime));
                 rCurTime += Time.deltaTime;
                 return rCurTime >= rTimeLength;
             });
-            this.TipGroup.alpha = 0;
-            this.gameObject.SetActive(false);
+            TipGroup.alpha = 0;
+            gameObject.SetActive(false);
         }
     }
 }

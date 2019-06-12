@@ -3,9 +3,7 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 using System.Threading.Tasks;
-using Knight.Framework;
 using UnityEngine.UI;
 
 namespace Game
@@ -22,7 +20,7 @@ namespace Game
             //切换到Login场景
             await Login.Instance.Initialize();
 
-            Debug.Log("End hotfix init...");
+            Debug.Log("游戏热更新初始化完毕");
         }
     }
 }
