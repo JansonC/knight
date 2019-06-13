@@ -3,8 +3,6 @@
 //        Email: hgplan@126.com
 //======================================================================
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 using Knight.Core;
 
 namespace Knight.Framework.Input
@@ -12,9 +10,9 @@ namespace Knight.Framework.Input
     [Flags]
     public enum InputKey : int
     {
-        Jump   = 1,
+        Jump = 1,
         Attack = 2,
-        Run    = 4,
+        Run = 4,
         Skill1 = 8,
         Skill2 = 16,
         Skill3 = 32,
@@ -25,7 +23,9 @@ namespace Knight.Framework.Input
 
     public abstract class BaseInput
     {
-        public BaseInput() { }
+        public BaseInput()
+        {
+        }
 
         /// <summary>
         /// 输入的创建
@@ -40,22 +40,26 @@ namespace Knight.Framework.Input
         /// <summary>
         /// 前后
         /// </summary>
-        public abstract float Horizontal    { get; }
+        public abstract float Horizontal { get; }
+
         /// <summary>
         /// 左右
         /// </summary>
-        public abstract float Vertical      { get; }
+        public abstract float Vertical { get; }
+
         /// <summary>
         /// 是否有按键按下
         /// </summary>
-        public abstract bool  IsKeyDown(InputKey rInputKey);
+        public abstract bool IsKeyDown(InputKey rInputKey);
+
         /// <summary>
         /// 是否有按键弹起
         /// </summary>
-        public abstract bool  IsKeyUp(InputKey rInputKey);
+        public abstract bool IsKeyUp(InputKey rInputKey);
+
         /// <summary>
         /// 是否有按键的状态
         /// </summary>
-        public abstract bool  IsKey(InputKey rInputKey);
+        public abstract bool IsKey(InputKey rInputKey);
     }
 }

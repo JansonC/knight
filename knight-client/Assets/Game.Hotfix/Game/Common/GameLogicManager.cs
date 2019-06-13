@@ -2,8 +2,8 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using UnityEngine;
 using System.Threading.Tasks;
+using Knight.Core;
 using Knight.Framework.Hotfix;
 using Knight.Hotfix.Core;
 
@@ -26,7 +26,7 @@ namespace Game
             // 开始游戏Init流程
             await Init.Start_Async();
 
-            Debug.Log("热更新完毕");
+            Log.CI(Log.COLOR_GREEN, "热更新完毕");
         }
 
         public void Update()

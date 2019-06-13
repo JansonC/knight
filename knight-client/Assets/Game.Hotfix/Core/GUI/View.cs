@@ -1,12 +1,8 @@
 ﻿using Knight.Core;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using System.Reflection;
 
 namespace Knight.Hotfix.Core
 {
@@ -20,22 +16,22 @@ namespace Knight.Hotfix.Core
             PageSwitch,
             PageOverlap,
         }
-        
-        public string                   GUID                = "";
-        public string                   ViewName            = "";
-        public State                    CurState            = State.Fixing;
-        public bool                     IsBackCache         = false;
 
-        public GameObject               GameObject;
-        
-        public ViewControllerContainer  ViewModelContainer;
-        public ViewController           ViewController;
-        public ViewModel                DefaultViewModel;
+        public string GUID = "";
+        public string ViewName = "";
+        public State CurState = State.Fixing;
+        public bool IsBackCache = false;
 
-        public bool                     IsActived
+        public GameObject GameObject;
+
+        public ViewControllerContainer ViewModelContainer;
+        public ViewController ViewController;
+        public ViewModel DefaultViewModel;
+
+        public bool IsActived
         {
-            get { return this.GameObject.activeSelf;        }
-            set { this.GameObject.SetActive(value);         }
+            get { return GameObject.activeSelf; }
+            set { GameObject.SetActive(value); }
         }
 
         public static View CreateView(GameObject rViewGo)
@@ -45,43 +41,42 @@ namespace Knight.Hotfix.Core
             rUIView.GameObject = rViewGo;
             return rUIView;
         }
-        
+
         public async Task Initialize(string rViewName, string rViewGUID, State rViewState)
         {
-            this.ViewName = rViewName;
-            this.GUID     = rViewGUID;
-            this.CurState = rViewState;
-            
+            ViewName = rViewName;
+            GUID = rViewGUID;
+            CurState = rViewState;
+
             // 初始化ViewController
-            await this.InitializeViewModel();
+            await InitializeViewModel();
         }
-        
+
         /// <summary>
         /// 初始化ViewController
         /// </summary>
         private async Task InitializeViewModel()
         {
-            this.ViewModelContainer = this.GameObject.GetComponent<ViewControllerContainer>();
-            if (this.ViewModelContainer == null)
+            ViewModelContainer = GameObject.GetComponent<ViewControllerContainer>();
+            if (ViewModelContainer == null)
             {
-                Debug.LogErrorFormat("Prefab {0} has not ViewContainer Component..", this.ViewName);
+                Log.CI(Log.COLOR_RED, "'{0}' 预制体没有ViewContainer脚本组件", ViewName);
                 return;
             }
 
-            var rType = Type.GetType(this.ViewModelContainer.ViewControllerClass);
+            var rType = Type.GetType(ViewModelContainer.ViewControllerClass);
             if (rType == null)
             {
-                Debug.LogErrorFormat("Can not find ViewModel Type: {0}", rType);
+                Log.CI(Log.COLOR_RED, "找不到对应的ViewModel，type: {0}", rType);
                 return;
             }
 
             // 构建ViewController
-            this.ViewController = HotfixReflectAssists.Construct(rType) as ViewController;
-            this.ViewController.View = this;
-            this.ViewController.BindingViewModels(this.ViewModelContainer);
-            await this.ViewController.Initialize();
-
-            this.ViewController.DataBindingConnect(this.ViewModelContainer);
+            ViewController = HotfixReflectAssists.Construct(rType) as ViewController;
+            ViewController.View = this;
+            ViewController.BindingViewModels(ViewModelContainer);
+            await ViewController.Initialize();
+            ViewController.DataBindingConnect(ViewModelContainer);
         }
 
         /// <summary>
@@ -89,16 +84,16 @@ namespace Knight.Hotfix.Core
         /// </summary>
         public async Task Open()
         {
-            await this.ViewController?.Open();
+            await ViewController?.Open();
         }
-        
+
         /// <summary>
         /// 显示View
         /// </summary>
         public void Show()
         {
-            this.GameObject.SetActive(true);
-            this.ViewController?.Show();
+            GameObject.SetActive(true);
+            ViewController?.Show();
         }
 
         /// <summary>
@@ -106,19 +101,19 @@ namespace Knight.Hotfix.Core
         /// </summary>
         public void Hide()
         {
-            this.GameObject.SetActive(false);
-            this.ViewController?.Hide();
+            GameObject.SetActive(false);
+            ViewController?.Hide();
         }
 
         public void Update()
         {
-            this.ViewController?.Update();
+            ViewController?.Update();
         }
-        
+
         public void Dispose()
         {
-            this.ViewController?.DataBindingDisconnect(this.ViewModelContainer);
-            this.ViewController?.Dispose();
+            ViewController?.DataBindingDisconnect(ViewModelContainer);
+            ViewController?.Dispose();
         }
 
         /// <summary>
@@ -126,7 +121,7 @@ namespace Knight.Hotfix.Core
         /// </summary>
         public void Close()
         {
-            this.ViewController?.Closing();
+            ViewController?.Closing();
         }
     }
 }

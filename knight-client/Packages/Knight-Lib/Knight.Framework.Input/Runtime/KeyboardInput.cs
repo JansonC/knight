@@ -3,9 +3,7 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 using Knight.Core;
-using System;
 
 namespace Knight.Framework.Input
 {
@@ -16,15 +14,15 @@ namespace Knight.Framework.Input
     {
         public Dict<InputKey, KeyCode> mKeys = new Dict<InputKey, KeyCode>()
         {
-            { InputKey.Jump,   KeyCode.Space     },
-            { InputKey.Attack, KeyCode.C         },
-            { InputKey.Run,    KeyCode.LeftShift },
-            { InputKey.Skill1, KeyCode.Keypad1   },
-            { InputKey.Skill2, KeyCode.Keypad2   },
-            { InputKey.Skill3, KeyCode.Keypad3   },
-            { InputKey.Skill4, KeyCode.Keypad4   },
-            { InputKey.Skill5, KeyCode.R         },
-            { InputKey.Skill6, KeyCode.F         }
+            {InputKey.Jump, KeyCode.Space},
+            {InputKey.Attack, KeyCode.C},
+            {InputKey.Run, KeyCode.LeftShift},
+            {InputKey.Skill1, KeyCode.Keypad1},
+            {InputKey.Skill2, KeyCode.Keypad2},
+            {InputKey.Skill3, KeyCode.Keypad3},
+            {InputKey.Skill4, KeyCode.Keypad4},
+            {InputKey.Skill5, KeyCode.R},
+            {InputKey.Skill6, KeyCode.F}
         };
 
         public KeyboardInput()
@@ -36,7 +34,7 @@ namespace Knight.Framework.Input
         {
             get { return UnityEngine.Input.GetAxis("Horizontal"); }
         }
-        
+
         public override float Vertical
         {
             get { return UnityEngine.Input.GetAxis("Vertical"); }
@@ -49,6 +47,7 @@ namespace Knight.Framework.Input
             {
                 return UnityEngine.Input.GetKeyDown(rKeyCode);
             }
+
             return false;
         }
 
@@ -59,6 +58,7 @@ namespace Knight.Framework.Input
             {
                 return UnityEngine.Input.GetKeyUp(rKeyCode);
             }
+
             return false;
         }
 
@@ -69,6 +69,7 @@ namespace Knight.Framework.Input
             {
                 return UnityEngine.Input.GetKey(rKeyCode);
             }
+
             return false;
         }
     }

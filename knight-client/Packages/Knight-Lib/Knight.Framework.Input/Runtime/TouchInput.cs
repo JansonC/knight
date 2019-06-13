@@ -4,7 +4,6 @@
 //======================================================================
 //#define INPUT_EDITOR_REMOTE_DEBUG
 using UnityEngine;
-using System.Collections;
 
 namespace Knight.Framework.Input
 {
@@ -14,41 +13,46 @@ namespace Knight.Framework.Input
         ///<summary>
         /// The position delta since last change.
         ///</summary>
-        public Vector2      deltaPosition;
+        public Vector2 deltaPosition;
+
         /// <summary>
         /// Amount of time that has passed since the last recorded change in Touch values.
         /// </summary>
-        public float        deltaTime;
+        public float deltaTime;
+
         /// <summary>
         /// fingerId
         /// </summary>
-        public int          fingerId;
+        public int fingerId;
+
         /// <summary>
         /// Describes the phase of the touch.
         /// </summary>
-        public TouchPhase   phase;
+        public TouchPhase phase;
+
         /// <summary>
         /// The position of the touch in pixel coordinates.
         /// </summary>
-        public Vector2      position;
+        public Vector2 position;
+
         /// <summary>
         /// Number of taps.
         /// </summary>
-        public int          tapCount;
+        public int tapCount;
 
         public TouchObject(Touch rTouch)
         {
-            this.SetTouch(rTouch);
+            SetTouch(rTouch);
         }
 
         public void SetTouch(Touch rTouch)
         {
-            this.deltaPosition  = rTouch.deltaPosition;
-            this.deltaTime      = rTouch.deltaTime;
-            this.fingerId       = rTouch.fingerId;
-            this.phase          = rTouch.phase;
-            this.position       = rTouch.position;
-            this.tapCount       = rTouch.tapCount;
+            deltaPosition = rTouch.deltaPosition;
+            deltaTime = rTouch.deltaTime;
+            fingerId = rTouch.fingerId;
+            phase = rTouch.phase;
+            position = rTouch.position;
+            tapCount = rTouch.tapCount;
         }
     }
 
@@ -57,17 +61,16 @@ namespace Knight.Framework.Input
     /// </summary>
     public class TouchInput : MonoBehaviour
     {
-        private static TouchInput   __instance;
-        public  static TouchInput   Instance { get { return __instance; } }
+        public static TouchInput Instance { get; private set; }
 
-        public  int                 touchCount = 0;
-        public  MouseTouchMonitor   mouseTouchMonitor;
+        public int touchCount = 0;
+        public MouseTouchMonitor mouseTouchMonitor;
 
         void Awake()
         {
-            if (__instance == null)
+            if (Instance == null)
             {
-                __instance = this;
+                Instance = this;
             }
         }
 
@@ -76,22 +79,28 @@ namespace Knight.Framework.Input
             get
             {
 #if UNITY_EDITOR && !INPUT_EDITOR_REMOTE_DEBUG
-                return this.touchCount;
+                return touchCount;
 #else
                 this.touchCount = UnityEngine.Input.touchCount;
                 return UnityEngine.Input.touchCount;
 #endif
             }
         }
-        
+
         public TouchObject GetTouch(int nTouchIndex)
         {
 #if UNITY_EDITOR && !INPUT_EDITOR_REMOTE_DEBUG
             if (nTouchIndex == 0)
-                return this.mouseTouchMonitor.TouchObj;
+            {
+                return mouseTouchMonitor.TouchObj;
+            }
             else
             {
-                if (UnityEngine.Input.touchCount <= nTouchIndex) return null;
+                if (UnityEngine.Input.touchCount <= nTouchIndex)
+                {
+                    return null;
+                }
+
                 return new TouchObject(UnityEngine.Input.GetTouch(nTouchIndex));
             }
 
@@ -105,9 +114,13 @@ namespace Knight.Framework.Input
         {
 #if UNITY_EDITOR && !INPUT_EDITOR_REMOTE_DEBUG
             if (UnityEngine.Input.GetMouseButton(0))
-                this.touchCount = 1;
+            {
+                touchCount = 1;
+            }
             else
-                this.touchCount = 0;
+            {
+                touchCount = 0;
+            }
 #endif
         }
     }

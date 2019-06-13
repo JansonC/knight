@@ -3,7 +3,6 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 
 namespace Knight.Framework.Input
 {
@@ -11,55 +10,58 @@ namespace Knight.Framework.Input
     {
         public TouchObject TouchObj;
 
-        private float      mCurTime;
-        private float      mLastTime;
+        private float mCurTime;
+        private float mLastTime;
 
-        private Vector2    mCurPos;
-        private Vector2    mLastPos;
+        private Vector2 mCurPos;
+        private Vector2 mLastPos;
 
-        private bool       mIsTouched = false;
+        public bool IsTouched { get; private set; } = false;
 
-        public  bool       IsTouched { get { return mIsTouched; } }
-        
         void Update()
         {
             if (UnityEngine.Input.GetMouseButton(0))
             {
-                if (this.TouchObj.deltaPosition == Vector2.zero)
-                    this.TouchObj.phase = TouchPhase.Stationary;
+                if (TouchObj.deltaPosition == Vector2.zero)
+                {
+                    TouchObj.phase = TouchPhase.Stationary;
+                }
                 else
-                    this.TouchObj.phase = TouchPhase.Moved;
+                {
+                    TouchObj.phase = TouchPhase.Moved;
+                }
 
-                this.TouchObj.deltaTime = this.mCurTime - this.mLastTime;
-                this.TouchObj.deltaPosition = this.mCurPos - this.mLastPos;
+                TouchObj.deltaTime = mCurTime - mLastTime;
+                TouchObj.deltaPosition = mCurPos - mLastPos;
 
                 mLastTime = mCurTime;
                 mCurTime += Time.deltaTime;
 
                 mLastPos = mCurPos;
                 mCurPos = UnityEngine.Input.mousePosition;
-                this.TouchObj.position = mCurPos;
+                TouchObj.position = mCurPos;
 
-                this.mIsTouched = true;
+                IsTouched = true;
             }
+
             if (UnityEngine.Input.GetMouseButtonDown(0))
             {
                 mCurTime = mLastTime = 0;
                 mCurPos = mLastPos = UnityEngine.Input.mousePosition;
 
-                this.TouchObj.fingerId = -1000;
-                this.TouchObj.position = UnityEngine.Input.mousePosition;
-                this.TouchObj.phase = TouchPhase.Began;
-                this.mIsTouched = true;
+                TouchObj.fingerId = -1000;
+                TouchObj.position = UnityEngine.Input.mousePosition;
+                TouchObj.phase = TouchPhase.Began;
+                IsTouched = true;
             }
+
             if (UnityEngine.Input.GetMouseButtonUp(0))
             {
-                this.TouchObj.fingerId = -1000;
-                this.TouchObj.position = UnityEngine.Input.mousePosition;
-                this.TouchObj.phase = TouchPhase.Ended;
-                this.mIsTouched = false;
+                TouchObj.fingerId = -1000;
+                TouchObj.position = UnityEngine.Input.mousePosition;
+                TouchObj.phase = TouchPhase.Ended;
+                IsTouched = false;
             }
         }
     }
 }
-

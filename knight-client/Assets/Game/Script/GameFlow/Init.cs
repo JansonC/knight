@@ -16,12 +16,14 @@ namespace Game
     /// </summary>
     internal class Init : MonoBehaviour
     {
+        public bool needLog = false;
         public string HotfixABPath = "";
         public string HotfixModule = "";
 
         async void Start()
         {
-            Debug.Log("Game Start");
+            Log.IsActive = needLog;
+            Log.CI(Log.COLOR_ORANGE, "游戏启动");
             //限帧
             Application.targetFrameRate = 60;
 
@@ -50,10 +52,10 @@ namespace Game
             //异步初始化代码
             await Start_Async();
         }
-        
+
         private async Task Start_Async()
         {
-            Debug.Log("开始初始化");
+            Log.CI(Log.COLOR_YELLOW, "开始初始化");
 
             // 平台初始化
             await ABPlatform.Instance.Initialize();
@@ -74,7 +76,7 @@ namespace Game
             // 开始热更新端的游戏主逻辑
             await HotfixGameMainLogic.Instance.Initialize();
 
-            Debug.Log("初始化结束");
+            Log.CI(Log.COLOR_YELLOW, "初始化结束");
         }
     }
 }

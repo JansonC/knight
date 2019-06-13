@@ -10,20 +10,33 @@ namespace Knight.Hotfix.Core
     [HotfixTSIgnore]
     public class HotfixSerializerBinary
     {
-        public virtual void Serialize(BinaryWriter rWriter)     { }
-        public virtual void Deserialize(BinaryReader rReader)   { }
+        public virtual void Serialize(BinaryWriter rWriter)
+        {
+        }
+
+        public virtual void Deserialize(BinaryReader rReader)
+        {
+        }
     }
 
-    public class HotfixSerializerBinaryTypes : HotfixTypeSearchDefault<HotfixSerializerBinary> { }
+    public class HotfixSerializerBinaryTypes : HotfixTypeSearchDefault<HotfixSerializerBinary>
+    {
+    }
 
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class HotfixSBIgnoreAttribute : Attribute { }
+    public class HotfixSBIgnoreAttribute : Attribute
+    {
+    }
 
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class HotfixSBEnableAttribute : Attribute { }
+    public class HotfixSBEnableAttribute : Attribute
+    {
+    }
 
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class HotfixSBDynamicAttribute : Attribute { }
+    public class HotfixSBDynamicAttribute : Attribute
+    {
+    }
 
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class HotfixSBGroupAttribute : Attribute

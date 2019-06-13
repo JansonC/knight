@@ -1,9 +1,6 @@
 ﻿using Knight.Hotfix.Core;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.UI;
-using UnityEngine;
 using Knight.Core;
 
 namespace Game

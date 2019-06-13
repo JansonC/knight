@@ -5,31 +5,25 @@ using System.Threading.Tasks;
 using Knight.Core;
 using Knight.Framework.Net;
 using UnityEngine;
-using Knight.Framework;
 
 namespace Knight.Hotfix.Core
 {
     public class HotfixNetworkClient : THotfixSingleton<HotfixNetworkClient>
     {
-        private NetworkSession                              mSession;
         private readonly Dict<int, Action<IHotfixResponse>> mRequestCallback = new Dict<int, Action<IHotfixResponse>>();
-        private HotfixNetworkMessagePacker                  mMessagePacker;
-        private readonly List<byte[]>                       mByteses         = new List<byte[]>() { new byte[1], new byte[0], new byte[0] };
+        private HotfixNetworkMessagePacker mMessagePacker;
+        private readonly List<byte[]> mByteses = new List<byte[]>() {new byte[1], new byte[0], new byte[0]};
 
         private HotfixNetworkClient()
         {
             this.mMessagePacker = new HotfixNetworkMessagePacker();
         }
 
-        public NetworkSession Session
-        {
-            get { return mSession;  }
-            set { mSession = value; }
-        }
-        
+        public NetworkSession Session { get; set; }
+
         public void Run(NetworkSession rSession, Packet rPacket)
         {
-            if (this.mSession != rSession)
+            if (this.Session != rSession)
             {
                 Debug.LogError("Network Session is not the same one.");
                 return;
@@ -37,10 +31,11 @@ namespace Knight.Hotfix.Core
 
             ushort nOpcode = rPacket.Opcode;
             byte nFlag = rPacket.Flag;
-            
-            NetworkOpcodeTypes rOpcodeTypeComponent = this.mSession.Parent.OpcodeTypes;
+
+            NetworkOpcodeTypes rOpcodeTypeComponent = this.Session.Parent.OpcodeTypes;
             Type rResponseType = rOpcodeTypeComponent.GetType(nOpcode);
-            object rMessage = this.mMessagePacker.DeserializeFrom(rResponseType, rPacket.Bytes, Packet.Index, rPacket.Length - Packet.Index);
+            object rMessage = this.mMessagePacker.DeserializeFrom(rResponseType, rPacket.Bytes, Packet.Index,
+                rPacket.Length - Packet.Index);
             Debug.LogError($"recv: {HotfixJsonParser.ToJsonNode(rMessage)}");
 
             // 非RPC消息走这里
@@ -56,11 +51,13 @@ namespace Knight.Hotfix.Core
             {
                 throw new Exception($"flag is response, but message is not! {nOpcode}");
             }
+
             Action<IHotfixResponse> rAction;
             if (!this.mRequestCallback.TryGetValue(rResponse.RpcId, out rAction))
             {
                 return;
             }
+
             this.mRequestCallback.Remove(rResponse.RpcId);
             rAction(rResponse);
         }
@@ -105,6 +102,7 @@ namespace Knight.Hotfix.Core
                     {
                         throw new RpcException(rResponse.Error, rResponse.Message);
                     }
+
                     rTCS.SetResult(rResponse);
                 }
                 catch (Exception e)
@@ -122,7 +120,7 @@ namespace Knight.Hotfix.Core
 
         public void Send(byte nFlag, IHotfixMessage rMessage)
         {
-            NetworkOpcodeTypes rOpcodeTypes = this.mSession.Parent.OpcodeTypes;
+            NetworkOpcodeTypes rOpcodeTypes = this.Session.Parent.OpcodeTypes;
             ushort nOpcode = rOpcodeTypes.GetOpcode(rMessage.GetType());
             byte[] rBytes = this.mMessagePacker.SerializeToByteArray(rMessage);
 
@@ -131,7 +129,7 @@ namespace Knight.Hotfix.Core
 
         public void Send(byte nFlag, ushort nOpcode, byte[] rBytes)
         {
-            this.mSession.Send(nFlag, nOpcode, rBytes);
+            this.Session.Send(nFlag, nOpcode, rBytes);
         }
     }
 }

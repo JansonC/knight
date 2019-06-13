@@ -14,15 +14,15 @@ namespace Knight.Hotfix.Core
 {
     public class THotfixMB<T> where T : class
     {
-        public GameObject                   GameObject;
-        public List<UnityObject>            Objects;
+        public GameObject GameObject;
+        public List<UnityObject> Objects;
 
-        protected List<HotfixEventObject>   mEventObjs;
+        protected List<HotfixEventObject> mEventObjs;
 
         public void Awake_Proxy(GameObject rGo, List<UnityObject> rObjs)
         {
             this.GameObject = rGo;
-            this.Objects    = rObjs;
+            this.Objects = rObjs;
 
             // Data binding 
             this.BindHotfixMB();
@@ -46,8 +46,10 @@ namespace Knight.Hotfix.Core
             for (int i = 0; i < this.mEventObjs.Count; i++)
             {
                 if (!this.mEventObjs[i].NeedUnbind) continue;
-                HotfixEventManager.Instance.UnBinding(this.mEventObjs[i].TargetObject, this.mEventObjs[i].EventType, this.mEventObjs[i].EventHandler);
+                HotfixEventManager.Instance.UnBinding(this.mEventObjs[i].TargetObject, this.mEventObjs[i].EventType,
+                    this.mEventObjs[i].EventHandler);
             }
+
             this.mEventObjs.Clear();
 
             this.GameObject = null;
@@ -57,6 +59,7 @@ namespace Knight.Hotfix.Core
                 {
                     this.Objects[i] = null;
                 }
+
                 this.Objects.Clear();
             }
         }
@@ -70,7 +73,7 @@ namespace Knight.Hotfix.Core
         {
             this.OnDisable();
         }
-        
+
         public virtual void Awake()
         {
         }
@@ -86,7 +89,7 @@ namespace Knight.Hotfix.Core
         public virtual void OnDestroy()
         {
         }
-        
+
         public virtual void OnEnable()
         {
         }
@@ -105,6 +108,7 @@ namespace Knight.Hotfix.Core
                     return this.Objects[i];
                 }
             }
+
             return null;
         }
 
@@ -114,7 +118,7 @@ namespace Knight.Hotfix.Core
             if (nIndex < 0 || nIndex >= this.Objects.Count) return null;
             return this.Objects[nIndex];
         }
-        
+
         public void BindHotfixMB()
         {
             this.mEventObjs = new List<HotfixEventObject>();
@@ -122,7 +126,8 @@ namespace Knight.Hotfix.Core
             Type rType = this.GetType();
             if (rType == null) return;
 
-            var rBindingFlags = BindingFlags.GetField | BindingFlags.SetField | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+            var rBindingFlags = BindingFlags.GetField | BindingFlags.SetField | BindingFlags.Public |
+                                BindingFlags.NonPublic | BindingFlags.Instance;
             var rFiledInfos = rType.GetFields(rBindingFlags);
             for (int i = 0; i < rFiledInfos.Length; i++)
             {
@@ -140,18 +145,21 @@ namespace Knight.Hotfix.Core
 
                     // 如果属性没有，直接报错
                     if (rUnityObject == null)
-                        UnityEngine.Debug.LogErrorFormat("Not find binding data, please check prefab and hofix script. {0}", rFiledInfos[i].Name);
+                        UnityEngine.Debug.LogErrorFormat(
+                            "Not find binding data, please check prefab and hofix script. {0}", rFiledInfos[i].Name);
                     else
                     {
                         if (!rUnityObject.Type.Equals(rFiledInfos[i].FieldType.FullName))
-                            UnityEngine.Debug.LogErrorFormat("Binding data type is not match. {0}", rFiledInfos[i].Name);
+                            UnityEngine.Debug.LogErrorFormat("Binding data type is not match. {0}",
+                                rFiledInfos[i].Name);
                         else
                             rFiledInfos[i].SetValue(this, rUnityObject.Object);
                     }
                 }
             }
 
-            rBindingFlags = BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+            rBindingFlags = BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.NonPublic |
+                            BindingFlags.Instance;
             var rMethodInfos = rType.GetMethods(rBindingFlags);
             for (int i = 0; i < rMethodInfos.Length; i++)
             {
@@ -169,8 +177,12 @@ namespace Knight.Hotfix.Core
                     {
                         // 委托所在的对象，如果不是当前对象，要改动 
                         MethodInfo rMethodInfo = rMethodInfos[i];
-                        Action<Object> rActionDelegate = (rObj) => { rMethodInfo.Invoke(this, new object[] { rUnityObject.Object }); };
-                        HotfixEventManager.Instance.Binding(rUnityObject.Object, rBindingEventAttr.EventType, rActionDelegate);
+                        Action<Object> rActionDelegate = (rObj) =>
+                        {
+                            rMethodInfo.Invoke(this, new object[] {rUnityObject.Object});
+                        };
+                        HotfixEventManager.Instance.Binding(rUnityObject.Object, rBindingEventAttr.EventType,
+                            rActionDelegate);
                         this.mEventObjs.Add(new HotfixEventObject()
                         {
                             TargetObject = rUnityObject.Object,

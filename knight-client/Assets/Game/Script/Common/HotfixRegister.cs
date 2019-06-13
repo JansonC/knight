@@ -1,7 +1,4 @@
 ﻿using Knight.Framework.Hotfix;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Game
 {
@@ -11,7 +8,7 @@ namespace Game
         {
             HotfixApp_ILRT.OnHotfixRegisterFunc = (rApp) => 
             {
-                rApp.DelegateManager.RegisterMethodDelegate<Knight.Framework.Net.AChannel, System.Int32>();
+                rApp.DelegateManager.RegisterMethodDelegate<Knight.Framework.Net.AChannel, int>();
             };
         }
     }

@@ -1,10 +1,8 @@
 ﻿using Knight.Core.WindJson;
 using Microsoft.IO;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace Knight.Hotfix.Core
 {
@@ -22,6 +20,7 @@ namespace Knight.Hotfix.Core
                     rObj.Deserialize(br);
                 }
             }
+
             return rObj;
         }
 
@@ -35,11 +34,13 @@ namespace Knight.Hotfix.Core
                     rObj.Deserialize(br);
                 }
             }
+
             ISupportInitialize iSupportInitialize = rObj as ISupportInitialize;
             if (iSupportInitialize == null)
             {
                 return rObj;
             }
+
             iSupportInitialize.EndInit();
             return rObj;
         }
@@ -51,7 +52,7 @@ namespace Knight.Hotfix.Core
 
         public T DeserializeFrom<T>(byte[] rBytes, int nIndex, int nCount)
         {
-            return (T)DeserializeFrom(typeof(T), rBytes, nIndex, nCount);
+            return (T) DeserializeFrom(typeof(T), rBytes, nIndex, nCount);
         }
 
         public T DeserializeFrom<T>(string rStr)

@@ -2,8 +2,6 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using System;
-using Knight.Core;
 using UnityEngine;
 
 namespace Knight.Framework.Input
@@ -14,23 +12,23 @@ namespace Knight.Framework.Input
     /// </summary>
     public class InputManager : MonoBehaviour
     {
-        private static InputManager     __instance;
-        public  static InputManager     Instance { get { return __instance; } }
+        public static InputManager Instance { get; private set; }
 
         /// <summary>
         /// 键盘输入
         /// </summary>
-        private KeyboardInput           mKeyboardInput = null;
+        private KeyboardInput mKeyboardInput = null;
+
         /// <summary>
         /// 虚拟手柄输入
         /// </summary>
-        private JoystickInput           mJoystickInput = null;
+        private JoystickInput mJoystickInput = null;
 
         void Awake()
         {
-            if (__instance == null)
+            if (Instance == null)
             {
-                __instance = this;
+                Instance = this;
 
                 mKeyboardInput = BaseInput.Create<KeyboardInput>();
                 mJoystickInput = BaseInput.Create<JoystickInput>();
@@ -39,7 +37,7 @@ namespace Knight.Framework.Input
 
         public float Horizontal
         {
-            get 
+            get
             {
                 float fHorizontal = mKeyboardInput.Horizontal + mJoystickInput.Horizontal;
                 return Mathf.Clamp(fHorizontal, -1.0f, 1.0f);
@@ -48,10 +46,10 @@ namespace Knight.Framework.Input
 
         public float Vertical
         {
-            get 
+            get
             {
                 float fVertical = mKeyboardInput.Vertical + mJoystickInput.Vertical;
-                return Mathf.Clamp(fVertical, -1.0f, 1.0f); 
+                return Mathf.Clamp(fVertical, -1.0f, 1.0f);
             }
         }
 

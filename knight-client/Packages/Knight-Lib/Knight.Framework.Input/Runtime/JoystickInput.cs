@@ -2,16 +2,12 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using UnityEngine;
-using System.Collections;
-using Knight.Core;
 
 namespace Knight.Framework.Input
 {
     public class JoystickInput : BaseInput
     {
-        public JoystickInput()
-            :base()
+        public JoystickInput() : base()
         {
         }
 

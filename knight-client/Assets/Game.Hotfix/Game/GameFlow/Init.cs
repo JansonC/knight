@@ -2,8 +2,8 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using UnityEngine;
 using System.Threading.Tasks;
+using Knight.Core;
 using UnityEngine.UI;
 
 namespace Game
@@ -20,7 +20,7 @@ namespace Game
             //切换到Login场景
             await Login.Instance.Initialize();
 
-            Debug.Log("游戏热更新初始化完毕");
+            Log.CI(Log.COLOR_PURPLE, "游戏热更新初始化完毕");
         }
     }
 }
