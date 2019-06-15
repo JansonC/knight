@@ -7,20 +7,12 @@ namespace NaughtyAttributes
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
     public class DropdownAttribute : DrawerAttribute
     {
-        private string valuesFieldName;
-
         public DropdownAttribute(string valuesFieldName)
         {
-            this.valuesFieldName = valuesFieldName;
+            this.ValuesFieldName = valuesFieldName;
         }
 
-        public string ValuesFieldName
-        {
-            get
-            {
-                return this.valuesFieldName;
-            }
-        }
+        public string ValuesFieldName { get; }
     }
 
     public interface IDropdownList : IEnumerable<KeyValuePair<string, object>>

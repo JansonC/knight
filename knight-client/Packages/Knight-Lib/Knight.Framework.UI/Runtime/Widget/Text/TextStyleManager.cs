@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using Knight.Core;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 namespace UnityEngine.UI
 {
     [ExecuteInEditMode]
     public class TextStyleManager : MonoBehaviour
     {
-        private static TextStyleManager __instance;
-        public  static TextStyleManager Instance { get { return __instance; } }
+        public static TextStyleManager Instance { get; private set; }
 
-        public List<TextStyle>          TextStyles;
+        public List<TextStyle> TextStyles;
 
         private void Awake()
         {
-            if (__instance != null)
-                __instance = this;
+            if (Instance != null)
+            {
+                Instance = this;
+            }
         }
     }
 }

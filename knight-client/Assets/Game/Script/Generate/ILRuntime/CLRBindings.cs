@@ -48,6 +48,7 @@ namespace ILRuntime.Runtime.Generated
             System_Array_Binding.Register(app);
             Knight_Core_Log_Binding.Register(app);
             System_Int32_Binding.Register(app);
+            System_Int64_Binding.Register(app);
             Knight_Core_TSingleton_1_UIAtlasManager_Binding.Register(app);
             UnityEngine_UI_UIAtlasManager_Binding.Register(app);
             System_Threading_Tasks_Task_1_ILTypeInstance_Binding.Register(app);
@@ -55,7 +56,6 @@ namespace ILRuntime.Runtime.Generated
             Knight_Core_GameLoading_Binding.Register(app);
             Knight_Core_WaitAsync_Binding.Register(app);
             UnityFx_Async_CompilerServices_AsyncAwaiter_1_Knight_Core_WaitAsync_Binding_WaitForSecondsRequest_Binding.Register(app);
-            UnityEngine_Debug_Binding.Register(app);
             Knight_Core_Dict_2_Int32_ILTypeInstance_Binding.Register(app);
             System_Collections_Generic_IEnumerator_1_CKeyValuePair_2_Int32_ILTypeInstance_Binding.Register(app);
             Knight_Core_CKeyValuePair_2_Int32_ILTypeInstance_Binding.Register(app);
@@ -65,6 +65,7 @@ namespace ILRuntime.Runtime.Generated
             System_Collections_Generic_List_1_ILTypeInstance_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncTaskMethodBuilder_1_ILTypeInstance_Binding.Register(app);
             Knight_Core_EventArg_Binding.Register(app);
+            UnityEngine_Debug_Binding.Register(app);
             Knight_Core_ObservableList_1_ILTypeInstance_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncTaskMethodBuilder_1_String_Binding.Register(app);
             Knight_Core_TSingleton_1_EventManager_Binding.Register(app);

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0b22739e76b8be49b2a0b86c51b86ef
+guid: 2d4efeae884bb9146af9adb71d61e1ec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -60,7 +60,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -71,7 +71,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -86,14 +86,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fe590ae30afb65043b870c4a32c01093
+    spriteID: bde10f2efd7f6384fbac16384198439e
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: atlas_1
+  spritePackingTag: atlas_head_icon
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Knight.Hotfix.Core;
+﻿using Knight.Hotfix.Core;
 using UnityEngine.UI;
 
 namespace Game
@@ -14,9 +12,8 @@ namespace Game
             get { return ViewModelManager.Instance.ReceiveViewModel<Account>(); }
         }
 
-        [DataBinding]
-        public string           PlayerName      { get; set; }
-        [DataBinding]
-        public int              CoinCount       { get; set; }
+        [DataBinding] public string PlayerName { get; set; }
+        [DataBinding] public string HeadIcon { get; set; }
+        [DataBinding] public long GlodCount { get; set; }
     }
 }

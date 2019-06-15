@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace UnityEngine.UI
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Property |
+                    AttributeTargets.Method)]
     public class DataBindingAttribute : Attribute
     {
     }
@@ -20,7 +20,7 @@ namespace UnityEngine.UI
 
         public DataBindingRelatedAttribute(string rRelatedProp)
         {
-            this.RelatedProp = rRelatedProp;
+            RelatedProp = rRelatedProp;
         }
     }
 }

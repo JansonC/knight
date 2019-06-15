@@ -1,8 +1,5 @@
-﻿using Knight.Framework;
-using Knight.Hotfix.Core;
-using System.Collections;
+﻿using Knight.Hotfix.Core;
 using System.Threading.Tasks;
-using UnityEngine;
 using Knight.Core;
 using UnityFx.Async;
 
@@ -24,7 +21,7 @@ namespace Game
 
             protected override bool OnInit()
             {
-                this.name = "LoadAssets";
+                name = "LoadAssets";
                 return true;
             }
 
@@ -43,25 +40,25 @@ namespace Game
 
             public StageTask_InitData(GameMode_World rGameMode)
             {
-                this.GameMode = rGameMode;
+                GameMode = rGameMode;
             }
 
             protected override bool OnInit()
             {
-                this.name = "InitData";
+                name = "InitData";
                 return true;
             }
 
             protected override async Task OnRun_Async()
             {
                 //打开Login界面
-                await ViewManager.Instance.OpenAsync("KNFrame", View.State.Fixing);
+                await ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
                 await WaitAsync.WaitForSeconds(1.0f);
 
                 //隐藏进度条
                 GameLoading.Instance.Hide();
 
-                Debug.Log("GameStage -- Init data complete.");
+                Log.CI(Log.COLOR_ORANGE, "游戏关卡数据初始化完毕");
             }
         }
     }

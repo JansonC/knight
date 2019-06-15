@@ -9,25 +9,25 @@ namespace UnityEngine.UI
 {
     public class BindableMember<T> where T : MemberInfo
     {
-        public readonly object  PropOwner;
-        public readonly T       Member;
-        public readonly Type    ViewModelType;
+        public readonly object PropOwner;
+        public readonly T Member;
+        public readonly Type ViewModelType;
 
-        public string  ViewModelTypeName
+        public string ViewModelTypeName
         {
-            get { return this.ViewModelType.Name;   }
+            get { return this.ViewModelType.Name; }
         }
 
         public string MemberName
         {
-            get { return this.Member.Name;          }
+            get { return this.Member.Name; }
         }
 
         public BindableMember(object rPropOwner, T rMember, Type rViewModelType)
         {
-            this.PropOwner      = rPropOwner;
-            this.Member         = rMember;
-            this.ViewModelType  = rViewModelType;
+            this.PropOwner = rPropOwner;
+            this.Member = rMember;
+            this.ViewModelType = rViewModelType;
         }
 
         public override string ToString()
