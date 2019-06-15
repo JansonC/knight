@@ -1,0 +1,11 @@
+{
+  "name": "knight.framework.stage",
+  "displayName":  "Knight.Framework.Stage",
+  "version": "0.0.1",
+  "description": "Knight framework stage library.",
+  "keywords": [ "unity3d", "framework" ],
+  "category": "FRAMEWORK",
+  "dependencies": {
+	"knight.core":"0.0.1"
+  }
+}

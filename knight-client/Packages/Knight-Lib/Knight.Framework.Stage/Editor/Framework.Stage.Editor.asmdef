@@ -1,0 +1,19 @@
+{
+    "name": "Framework.Stage.Editor",
+    "references": [
+        "Core",
+        "Core.Editor",
+        "Framework.Stage"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

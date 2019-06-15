@@ -21,6 +21,7 @@ namespace Game
 
             protected override bool OnInit()
             {
+                Log.I("LoadAssets Init");
                 name = "LoadAssets";
                 return true;
             }
@@ -45,12 +46,15 @@ namespace Game
 
             protected override bool OnInit()
             {
+                Log.I("InitData Init");
                 name = "InitData";
                 return true;
             }
 
             protected override async Task OnRun_Async()
             {
+                await StageManager.Instance.SwitchSatge("MainStage");
+
                 //打开Login界面
                 await ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
                 await WaitAsync.WaitForSeconds(1.0f);

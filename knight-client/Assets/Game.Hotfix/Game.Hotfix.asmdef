@@ -9,7 +9,8 @@
         "Framework.Network",
         "Framework.Tweening",
         "Framework.UI",
-        "Game"
+        "Game",
+        "Framework.Stage"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
@@ -20,5 +21,6 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": []
 }

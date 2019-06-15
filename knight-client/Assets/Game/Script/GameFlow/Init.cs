@@ -8,6 +8,7 @@ using Knight.Framework.Hotfix;
 using System.Threading.Tasks;
 using UnityEngine.UI;
 using Knight.Framework.AssetBundles;
+using Knight.Framework.Stage;
 
 namespace Game
 {
@@ -41,6 +42,9 @@ namespace Game
             // 初始化热更新模块
             HotfixRegister.Register();
             HotfixManager.Instance.Initialize();
+
+            // 初始化舞台模块
+            StageRoot.Instance.Initialize();
 
             // 初始化UI模块
             UIRoot.Instance.Initialize();

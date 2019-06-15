@@ -2,11 +2,7 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
-using UnityEngine;
-using System.Collections;
 using Knight.Core;
-using System.Threading.Tasks;
-using UnityFx.Async;
 
 namespace UnityEngine.UI
 {

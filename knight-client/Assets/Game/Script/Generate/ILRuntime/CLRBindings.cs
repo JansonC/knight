@@ -67,6 +67,8 @@ namespace ILRuntime.Runtime.Generated
             Knight_Core_EventArg_Binding.Register(app);
             UnityEngine_Debug_Binding.Register(app);
             Knight_Core_ObservableList_1_ILTypeInstance_Binding.Register(app);
+            UnityEngine_GameObject_Binding.Register(app);
+            UnityEngine_Transform_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncTaskMethodBuilder_1_String_Binding.Register(app);
             Knight_Core_TSingleton_1_EventManager_Binding.Register(app);
             Knight_Core_EventManager_Binding.Register(app);
@@ -99,7 +101,6 @@ namespace ILRuntime.Runtime.Generated
             System_Linq_Enumerable_Binding.Register(app);
             System_Reflection_MethodInfo_Binding.Register(app);
             System_Reflection_MethodBase_Binding.Register(app);
-            UnityEngine_GameObject_Binding.Register(app);
             UnityEngine_UI_ViewControllerContainer_Binding.Register(app);
             UnityEngine_UI_MemberBindingAbstract_Binding.Register(app);
             System_Collections_Generic_List_1_ViewModelDataSource_Binding.Register(app);
@@ -118,7 +119,6 @@ namespace ILRuntime.Runtime.Generated
             System_Collections_IList_Binding.Register(app);
             UnityEngine_UI_ViewModelDataSourceArray_Binding.Register(app);
             UnityEngine_UI_UITool_Binding.Register(app);
-            UnityEngine_Transform_Binding.Register(app);
             UnityEngine_UI_ViewModelDataSourceTab_Binding.Register(app);
             System_Collections_Generic_List_1_TabButton_Binding.Register(app);
             UnityEngine_UI_TabView_Binding.Register(app);
@@ -154,6 +154,12 @@ namespace ILRuntime.Runtime.Generated
             Microsoft_IO_RecyclableMemoryStreamManager_Binding.Register(app);
             System_ComponentModel_ISupportInitialize_Binding.Register(app);
             System_Collections_Generic_List_1_MemberInfo_Binding.Register(app);
+            Knight_Framework_Stage_StageControllerContainer_Binding.Register(app);
+            Knight_Framework_Stage_StageRoot_Binding.Register(app);
+            Knight_Core_TSingleton_1_StageAssetLoader_Binding.Register(app);
+            Knight_Framework_Stage_StageAssetLoader_Binding.Register(app);
+            Knight_Framework_Stage_StageAssetLoader_Binding_LoaderRequest_Binding.Register(app);
+            Knight_Framework_Stage_StageTool_Binding.Register(app);
             System_Threading_Monitor_Binding.Register(app);
             System_Activator_Binding.Register(app);
             System_InvalidOperationException_Binding.Register(app);

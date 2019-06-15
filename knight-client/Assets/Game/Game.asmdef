@@ -5,7 +5,8 @@
         "Framework.AssetBundle",
         "Framework.Hotfix",
         "Framework.UI",
-        "Framework.Network"
+        "Framework.Network",
+        "Framework.Stage"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
@@ -14,5 +15,6 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": []
 }

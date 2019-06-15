@@ -10,6 +10,7 @@
     "knight.framework.tinymode": "file:./Knight-Lib/Knight.Framework.TinyMode",
     "knight.framework.tweening": "file:./Knight-Lib/Knight.Framework.Tweening",
     "knight.framework.ui": "file:./Knight-Lib/Knight.Framework.UI",
+    "knight.framework.stage": "file:./Knight-Lib/Knight.Framework.Stage",
     "nuget.mono-cecil": "0.1.6-preview",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
