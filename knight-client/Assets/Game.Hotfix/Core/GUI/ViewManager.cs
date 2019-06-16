@@ -169,8 +169,19 @@ namespace Knight.Hotfix.Core
             UtilTool.SafeExecute(rCloseComplted);
         }
 
+        public void CloseAllDaynamicViews()
+        {
+            Log.I("移除所有daynamic View, 数量 {0}", mCurFixedViews.Count);
+            var rViewKeys = mCurFixedViews.Keys;
+            for (int i = 0; i < rViewKeys.Count; i++)
+            {
+                CloseView(rViewKeys[i]);
+            }
+        }
+
         public void CloseAllPageViews()
         {
+            Log.I("移除所有page View, 数量 {0}", mCurPageViews.Count);
             var rViewKeys = mCurPageViews.Keys;
             for (int i = 0; i < rViewKeys.Count; i++)
             {

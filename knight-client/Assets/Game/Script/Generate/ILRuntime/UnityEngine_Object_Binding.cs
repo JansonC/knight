@@ -65,6 +65,9 @@ namespace ILRuntime.Runtime.Generated
             args = new Type[]{};
             method = type.GetMethod("get_name", flag, null, args, null);
             app.RegisterCLRMethodRedirection(method, get_name_5);
+            args = new Type[]{typeof(UnityEngine.Object)};
+            method = type.GetMethod("Destroy", flag, null, args, null);
+            app.RegisterCLRMethodRedirection(method, Destroy_6);
 
 
         }
@@ -180,6 +183,22 @@ namespace ILRuntime.Runtime.Generated
             var result_of_this_method = instance_of_this_method.name;
 
             return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+        }
+
+        static StackObject* Destroy_6(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
+        {
+            ILRuntime.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
+            StackObject* ptr_of_this_method;
+            StackObject* __ret = ILIntepreter.Minus(__esp, 1);
+
+            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
+            UnityEngine.Object @obj = (UnityEngine.Object)typeof(UnityEngine.Object).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
+            __intp.Free(ptr_of_this_method);
+
+
+            UnityEngine.Object.Destroy(@obj);
+
+            return __ret;
         }
 
 

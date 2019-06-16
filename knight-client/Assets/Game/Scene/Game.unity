@@ -265,10 +265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIRoot
       objectReference: {fileID: 0}
-    - target: {fileID: 1623059167456220, guid: 3d709f3fa8640904e87a8a5566d21887, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4282453036703478, guid: 3d709f3fa8640904e87a8a5566d21887, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -299,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4282453036703478, guid: 3d709f3fa8640904e87a8a5566d21887, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4282453036703478, guid: 3d709f3fa8640904e87a8a5566d21887, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -365,7 +361,7 @@ PrefabInstance:
     - target: {fileID: 3406584856354235529, guid: 09da983ea09add44d8a491c08c1fbb50,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3406584856354235529, guid: 09da983ea09add44d8a491c08c1fbb50,
         type: 3}

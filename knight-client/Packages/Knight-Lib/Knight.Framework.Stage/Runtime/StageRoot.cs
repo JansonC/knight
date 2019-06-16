@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using Knight.Core;
+using UnityEngine;
 
 namespace Knight.Framework.Stage
 {
     public class StageRoot : MonoBehaviour
     {
         public static StageRoot Instance { get; private set; }
+
+        public Camera StageCamera;
 
         private void Awake()
         {
@@ -16,7 +19,7 @@ namespace Knight.Framework.Stage
 
         public void Initialize()
         {
-
+            StageCamera.orthographicSize = WorldUtils.MaxScreenHeight / WorldUtils.GamePixelUnit / 2;
         }
     }
 }

@@ -2,6 +2,8 @@
 //        Copyright (C) 2015-2020 Winddy He. All rights reserved
 //        Email: hgplan@126.com
 //======================================================================
+
+using Knight.Core;
 using UnityEngine.EventSystems;
 
 namespace UnityEngine.UI
@@ -26,6 +28,7 @@ namespace UnityEngine.UI
 
         public void Initialize()
         {
+            UICamera.orthographicSize = WorldUtils.MaxScreenHeight / WorldUtils.GamePixelUnit / 2;
             DynamicRoot.SetActive(true);
             GlobalsRoot.SetActive(true);
             PopupRoot.SetActive(true);

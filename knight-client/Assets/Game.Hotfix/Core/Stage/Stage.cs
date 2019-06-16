@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Knight.Core;
 using Knight.Framework.Stage;
 using UnityEngine;
-using Game;
 
 namespace Knight.Hotfix.Core
 {
@@ -68,7 +67,7 @@ namespace Knight.Hotfix.Core
         }
 
         /// <summary>
-        /// 打开View, 此时View对应的GameObject已经加载出来了, 用于做View的初始化。
+        /// 打开Stage，此时Stage对应的GameObject已经加载出来了, 用于做Satge的初始化。
         /// </summary>
         public async Task Open()
         {

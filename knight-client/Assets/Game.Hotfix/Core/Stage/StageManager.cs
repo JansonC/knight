@@ -9,6 +9,7 @@ namespace Knight.Hotfix.Core
     public class StageManager : THotfixSingleton<StageManager>
     {
         private GameObject _StageRoot;
+        private Stage CurStage;
 
         private StageManager()
         {
@@ -38,6 +39,13 @@ namespace Knight.Hotfix.Core
                 return null;
             }
 
+            if (CurStage != null)
+            {
+                Log.CI(Log.COLOR_YELLOW, "切换舞台，移除旧的舞台：{0}", CurStage.StageName);
+                CurStage.StageController.Closing();
+                UnityEngine.Object.Destroy(CurStage.GameObject);
+            }
+
             try
             {
                 await stage.Initialize(stageName, stageGUID);
@@ -48,6 +56,7 @@ namespace Knight.Hotfix.Core
                 Debug.LogException(e);
             }
 
+            CurStage = stage;
             return stage;
         }
     }

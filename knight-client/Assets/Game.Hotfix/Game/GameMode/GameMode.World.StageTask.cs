@@ -54,14 +54,8 @@ namespace Game
             protected override async Task OnRun_Async()
             {
                 await StageManager.Instance.SwitchSatge("MainStage");
-
-                //打开Login界面
-                await ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
                 await WaitAsync.WaitForSeconds(1.0f);
-
-                //隐藏进度条
                 GameLoading.Instance.Hide();
-
                 Log.CI(Log.COLOR_ORANGE, "游戏关卡数据初始化完毕");
             }
         }
