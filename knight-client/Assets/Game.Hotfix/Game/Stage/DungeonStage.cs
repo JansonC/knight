@@ -13,6 +13,7 @@ namespace Game
         protected override async Task OnInitialize()
         {
             await base.OnInitialize();
+            ViewManager.Instance.OpenAsync("DungeonPanel", View.State.Fixing);
         }
 
         protected override async Task OnOpen()

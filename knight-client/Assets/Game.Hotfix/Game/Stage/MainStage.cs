@@ -15,6 +15,7 @@ namespace Game
         protected override async Task OnInitialize()
         {
             await base.OnInitialize();
+            ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
         }
 
         protected override async Task OnOpen()
@@ -25,8 +26,6 @@ namespace Game
             dungeonBtn = stageTrans.Find("DungeonBtn").gameObject;
             HotfixEventManager.Instance.Binding(cropsBtn, HEventTriggerType.PointerClick, OnCropsBtnClick);
             HotfixEventManager.Instance.Binding(dungeonBtn, HEventTriggerType.PointerClick, OnDungeonBtnClick);
-
-            await ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
         }
 
         protected override void OnClose()

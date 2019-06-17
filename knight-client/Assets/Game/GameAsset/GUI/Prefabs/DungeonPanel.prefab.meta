@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: bb7a16ec55306d14ba625a0ae9040e32
+guid: 4fb4eafac4982fa459cdb9aa598a60ff
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: game/gui/prefabs/mainsatge
+  assetBundleName: game/gui/prefabs/dungeonpanel
   assetBundleVariant: ab

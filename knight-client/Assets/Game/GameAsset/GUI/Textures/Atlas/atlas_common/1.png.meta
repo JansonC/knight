@@ -93,7 +93,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: atlas_2
+  spritePackingTag: atlas_common
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
