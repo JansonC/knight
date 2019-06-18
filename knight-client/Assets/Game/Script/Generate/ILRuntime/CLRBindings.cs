@@ -67,8 +67,12 @@ namespace ILRuntime.Runtime.Generated
             Knight_Core_EventArg_Binding.Register(app);
             UnityEngine_Debug_Binding.Register(app);
             Knight_Core_ObservableList_1_ILTypeInstance_Binding.Register(app);
+            UnityEngine_UI_Image_Binding.Register(app);
             UnityEngine_GameObject_Binding.Register(app);
             UnityEngine_Transform_Binding.Register(app);
+            Knight_Core_WorldUtils_Binding.Register(app);
+            UnityEngine_Vector2_Binding.Register(app);
+            System_Runtime_CompilerServices_AsyncVoidMethodBuilder_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncTaskMethodBuilder_1_String_Binding.Register(app);
             Knight_Core_TSingleton_1_EventManager_Binding.Register(app);
             Knight_Core_EventManager_Binding.Register(app);

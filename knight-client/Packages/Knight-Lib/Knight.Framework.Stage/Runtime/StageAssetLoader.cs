@@ -23,7 +23,7 @@ namespace Knight.Framework.Stage
         /// <summary>
         /// 异步加载UI
         /// </summary>
-        public LoaderRequest LoadUI(string rViewName)
+        public LoaderRequest LoadStage(string rViewName)
         {
             LoaderRequest rRequest = new LoaderRequest(rViewName);
             string rUIABPath = "game/stage/prefabs/" + rRequest.StageName.ToLower() + ".ab";
@@ -40,7 +40,7 @@ namespace Knight.Framework.Stage
         /// <summary>
         /// 卸载UI资源
         /// </summary>
-        public void UnloadUI(string rViewName)
+        public void UnloadStage(string rViewName)
         {
             string rUIABPath = "game/stage/prefabs/" + rViewName.ToLower() + ".ab";
             AssetLoader.Instance.UnloadAsset(rUIABPath);

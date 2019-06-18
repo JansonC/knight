@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179824044884171093}
-  - component: {fileID: 2030769786097225319}
   - component: {fileID: 4936583864592772847}
   m_Layer: 5
   m_Name: DungeonPanel
@@ -38,14 +37,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2030769786097225319
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2323576003171066492}
-  m_CullTransparentMesh: 0
 --- !u!114 &4936583864592772847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewControllerClass: Game.DungeonPanel
   ViewModels: []
-  EventBindings: []
+  EventBindings:
+  - {fileID: 1425683023558472540}
   ViewControllerClasses:
   - Game.DungeonPanel
   - Game.FrameView

@@ -23,14 +23,14 @@ namespace ILRuntime.Runtime.Generated
             Type[] args;
             Type type = typeof(Knight.Framework.Stage.StageAssetLoader);
             args = new Type[]{typeof(System.String)};
-            method = type.GetMethod("LoadUI", flag, null, args, null);
-            app.RegisterCLRMethodRedirection(method, LoadUI_0);
+            method = type.GetMethod("LoadStage", flag, null, args, null);
+            app.RegisterCLRMethodRedirection(method, LoadStage_0);
 
 
         }
 
 
-        static StackObject* LoadUI_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
+        static StackObject* LoadStage_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             ILRuntime.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
             StackObject* ptr_of_this_method;
@@ -44,7 +44,7 @@ namespace ILRuntime.Runtime.Generated
             Knight.Framework.Stage.StageAssetLoader instance_of_this_method = (Knight.Framework.Stage.StageAssetLoader)typeof(Knight.Framework.Stage.StageAssetLoader).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
             __intp.Free(ptr_of_this_method);
 
-            var result_of_this_method = instance_of_this_method.LoadUI(@rViewName);
+            var result_of_this_method = instance_of_this_method.LoadStage(@rViewName);
 
             return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
         }

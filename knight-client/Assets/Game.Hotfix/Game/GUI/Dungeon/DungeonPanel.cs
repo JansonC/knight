@@ -12,11 +12,6 @@ namespace Game
             await base.OnInitialize();
         }
 
-        protected override async Task OnOpen()
-        {
-            await base.OnOpen();
-        }
-
         [DataBinding]
         private void OnBackBtnClicked(EventArg rEventArg)
         {

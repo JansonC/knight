@@ -22,7 +22,7 @@ namespace Knight.Hotfix.Core
 
         public async Task<Stage> SwitchSatge(string stageName)
         {
-            var loaderRequest = StageAssetLoader.Instance.LoadUI(stageName);
+            var loaderRequest = StageAssetLoader.Instance.LoadStage(stageName);
             if (loaderRequest.ViewPrefabGo == null)
             {
                 Log.CI(Log.COLOR_RED, "切换舞台出错，未找到预制体：{0}", stageName);
