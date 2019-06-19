@@ -15,5 +15,6 @@ namespace Game
         [DataBinding] public string PlayerName { get; set; }
         [DataBinding] public string HeadIcon { get; set; }
         [DataBinding] public long GlodCount { get; set; }
+        [DataBinding] public long JewelCount { get; set; }
     }
 }

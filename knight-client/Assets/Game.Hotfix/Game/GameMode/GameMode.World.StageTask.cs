@@ -56,7 +56,7 @@ namespace Game
                 await StageManager.Instance.SwitchSatge("MainStage");
                 await WaitAsync.WaitForSeconds(1.0f);
                 GameLoading.Instance.Hide();
-                Log.CI(Log.COLOR_ORANGE, "游戏关卡数据初始化完毕");
+                Log.CI(Log.COLOR_ORANGE, "游戏主页初始化完毕");
             }
         }
     }

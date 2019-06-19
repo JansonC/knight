@@ -10,7 +10,7 @@ namespace Game
         {
             if (nCount >= 10000)
             {
-                return string.Format("{0:f2}万", (nCount / 10000.0f));
+                return string.Format("{0:f2}万", nCount / 10000.0f);
             }
             else if (nCount >= 100000000)
             {
@@ -27,7 +27,7 @@ namespace Game
         {
             if (nCount >= 10000)
             {
-                return string.Format("{0:f2}万", (nCount / 10000.0f));
+                return string.Format("{0:f2}万", nCount / 10000.0f);
             }
             else if (nCount >= 100000000)
             {

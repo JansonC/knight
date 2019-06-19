@@ -23,6 +23,8 @@ MonoBehaviour:
   - fight_btn
   - go_back_btn
   - gold_icon
+  - jewel_icon
   - jindutiao_bg[3,3,10,10]
   - jindutiao_front
+  - label_border_bg
   - upgrade_btn

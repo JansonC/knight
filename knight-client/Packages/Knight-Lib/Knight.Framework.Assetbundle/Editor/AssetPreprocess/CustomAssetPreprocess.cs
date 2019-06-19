@@ -3,7 +3,6 @@
 //        Email: hgplan@126.com
 //======================================================================
 using UnityEngine;
-using System.Collections;
 using UnityEditor;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -25,9 +24,10 @@ namespace Knight.Framework.AssetBundles.Editor
 
         private void PreprocessTexture_Role_Scene()
         {
-            if (!this.assetPath.Contains("OriginalRes/Role/") &&
-                !this.assetPath.Contains("OriginalRes/Scene/"))
+            if (!assetPath.Contains("OriginalRes/Role/") && !assetPath.Contains("OriginalRes/Scene/"))
+            {
                 return;
+            }
 
             TextureImporter rTexImporter = this.assetImporter as TextureImporter;
             TextureImporterPlatformSettings rSettings = new TextureImporterPlatformSettings();
@@ -40,10 +40,16 @@ namespace Knight.Framework.AssetBundles.Editor
 
         private void PreprocessTexture_UI()
         {
-            if (!this.assetPath.Contains("GameAsset/GUI/Textures")) return;
+            if (!assetPath.Contains("GameAsset/GUI/Textures"))
+            {
+                return;
+            }
 
-            TextureImporter rTexImporter = this.assetImporter as TextureImporter;
-            if (rTexImporter == null) return;
+            TextureImporter rTexImporter = assetImporter as TextureImporter;
+            if (rTexImporter == null)
+            {
+                return;
+            }
 
             rTexImporter.textureType = TextureImporterType.Sprite;
             rTexImporter.spriteImportMode = SpriteImportMode.Single;
@@ -52,12 +58,17 @@ namespace Knight.Framework.AssetBundles.Editor
             rTexImporter.isReadable = false;
             rTexImporter.wrapMode = TextureWrapMode.Clamp;
             // set tag
-            string rDirName = Path.GetFileName(Path.GetDirectoryName(this.assetPath));
+            string rDirName = Path.GetFileName(Path.GetDirectoryName(assetPath));
             rTexImporter.spritePackingTag = rDirName;
             // set compress
             rTexImporter.textureCompression = TextureImporterCompression.CompressedHQ;
             // set border arg
-            Vector4 rBorderArg = ParseBorderArg(this.assetPath);
+            Vector4 rBorderArg = ParseBorderArg(assetPath);
+            if (rBorderArg == Vector4.zero)
+            {
+                return;
+            }
+
             rTexImporter.spriteBorder = rBorderArg;
         }
 
@@ -75,17 +86,21 @@ namespace Knight.Framework.AssetBundles.Editor
                     Debug.LogError("Border arg format error: " + rAssetPath);
                     return Vector4.zero;
                 }
+
                 int[] rBorderArgValues = new int[4];
                 for (int i = 0; i < 4; i++)
                 {
                     int.TryParse(rBorderArgs[i].Trim(), out rBorderArgValues[i]);
                 }
+
                 return new Vector4(rBorderArgValues[2], rBorderArgValues[0], rBorderArgValues[3], rBorderArgValues[1]);
             }
+
             return Vector4.zero;
         }
 
-        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets,
+            string[] movedFromAssetPaths)
         {
             var rAllAssets = new List<string>(importedAssets);
             rAllAssets.AddRange(deletedAssets);
@@ -97,6 +112,7 @@ namespace Knight.Framework.AssetBundles.Editor
                 if (!rAllAssets[i].Contains("Assets/Game/GameAsset")) continue;
                 nCount++;
             }
+
             if (nCount == 0) return;
 
             var rABEntryConfig = EditorAssists.ReceiveAsset<ABEntryConfig>(ABBuilder.ABEntryConfigPath);
@@ -104,7 +120,10 @@ namespace Knight.Framework.AssetBundles.Editor
             for (int i = 0; i < rAllAssets.Count; i++)
             {
                 if (!rAllAssets[i].Contains("Assets/Game/GameAsset")) continue;
-                var rABEntry = rABEntryConfig.ABEntries.Find((rItem) => { return rAllAssets[i].Contains(rItem.assetResPath); });
+                var rABEntry = rABEntryConfig.ABEntries.Find((rItem) =>
+                {
+                    return rAllAssets[i].Contains(rItem.assetResPath);
+                });
                 if (rABEntry == null) continue;
                 nCount++;
             }
@@ -121,6 +140,7 @@ namespace Knight.Framework.AssetBundles.Editor
                     {
                         ai.SaveAndReimport();
                     }
+
                     return;
                 }
             }

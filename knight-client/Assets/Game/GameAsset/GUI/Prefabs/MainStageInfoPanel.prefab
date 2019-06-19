@@ -141,6 +141,403 @@ MonoBehaviour:
   - UnityEngine.UI.Button/onClick
   ViewModelMethods:
   - Game.MainStageInfoPanel/OnHeadImgClicked
+--- !u!1 &2284235913800746175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7369546295508271535}
+  - component: {fileID: 7910520137378155612}
+  - component: {fileID: 8208108939533280380}
+  m_Layer: 5
+  m_Name: JewelGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7369546295508271535
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284235913800746175}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4500454449057392076}
+  - {fileID: 2065082825195641896}
+  - {fileID: 7866287708169091122}
+  m_Father: {fileID: 6470254249430305208}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -165, y: -10}
+  m_SizeDelta: {x: 150, y: 45}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &7910520137378155612
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284235913800746175}
+  m_CullTransparentMesh: 0
+--- !u!114 &8208108939533280380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284235913800746175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: fe6cdbcab6c4a1c42bea222371d6fc18, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &4295153795512520397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065082825195641896}
+  - component: {fileID: 282693528741000530}
+  - component: {fileID: 1852816806559965843}
+  m_Layer: 5
+  m_Name: AddJewelBtn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2065082825195641896
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295153795512520397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7369546295508271535}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: 25, y: -20}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!222 &282693528741000530
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295153795512520397}
+  m_CullTransparentMesh: 0
+--- !u!114 &1852816806559965843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295153795512520397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8738d659ea4e34193ece7b73353d86, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &4720714557936955809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4500454449057392076}
+  - component: {fileID: 4646432789198980694}
+  - component: {fileID: 1772494325275162344}
+  m_Layer: 5
+  m_Name: JewelImg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4500454449057392076
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720714557936955809}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7369546295508271535}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: -5}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!222 &4646432789198980694
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720714557936955809}
+  m_CullTransparentMesh: 0
+--- !u!114 &1772494325275162344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720714557936955809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c599be7e4fb52514b84e83eab14a042a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &5030041670516290545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7866287708169091122}
+  - component: {fileID: 8460200979457316880}
+  - component: {fileID: 4914043100416225718}
+  - component: {fileID: 3729988994733190346}
+  - component: {fileID: 2510459262765448587}
+  m_Layer: 5
+  m_Name: UserJewelLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7866287708169091122
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030041670516290545}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7369546295508271535}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -35, y: 0}
+  m_SizeDelta: {x: 80, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!222 &8460200979457316880
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030041670516290545}
+  m_CullTransparentMesh: 0
+--- !u!114 &4914043100416225718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030041670516290545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 255}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 66404dc1b02c62740a71b39c6457e2c5, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!114 &3729988994733190346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030041670516290545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9c7f6608f080142bfec6dd2b58fdc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 4914043100416225718}
+  StyleID: 4
+--- !u!114 &2510459262765448587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030041670516290545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc495bcf50496fb4c926ace9b2261b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsListTemplate: 0
+  ViewPath: 'UnityEngine.UI.Text/text : String'
+  IsDataConvert: 1
+  DataConverterMethodPath: Game.LogicUtilTool/ToLongCountString
+  ViewModelPath: 'Game.Account/JewelCount : Int64'
+  ViewPaths:
+  - 'UnityEngine.RectTransform/anchorMin : Vector2'
+  - 'UnityEngine.RectTransform/anchorMax : Vector2'
+  - 'UnityEngine.RectTransform/anchoredPosition : Vector2'
+  - 'UnityEngine.RectTransform/sizeDelta : Vector2'
+  - 'UnityEngine.RectTransform/pivot : Vector2'
+  - 'UnityEngine.RectTransform/anchoredPosition3D : Vector3'
+  - 'UnityEngine.RectTransform/offsetMin : Vector2'
+  - 'UnityEngine.RectTransform/offsetMax : Vector2'
+  - 'UnityEngine.RectTransform/position : Vector3'
+  - 'UnityEngine.RectTransform/localPosition : Vector3'
+  - 'UnityEngine.RectTransform/eulerAngles : Vector3'
+  - 'UnityEngine.RectTransform/localEulerAngles : Vector3'
+  - 'UnityEngine.RectTransform/right : Vector3'
+  - 'UnityEngine.RectTransform/up : Vector3'
+  - 'UnityEngine.RectTransform/forward : Vector3'
+  - 'UnityEngine.RectTransform/rotation : Quaternion'
+  - 'UnityEngine.RectTransform/localRotation : Quaternion'
+  - 'UnityEngine.RectTransform/localScale : Vector3'
+  - 'UnityEngine.RectTransform/parent : Transform'
+  - 'UnityEngine.RectTransform/hasChanged : Boolean'
+  - 'UnityEngine.RectTransform/hierarchyCapacity : Int32'
+  - 'UnityEngine.RectTransform/tag : String'
+  - 'UnityEngine.RectTransform/name : String'
+  - 'UnityEngine.RectTransform/hideFlags : HideFlags'
+  - 'UnityEngine.UI.Text/font : Font'
+  - 'UnityEngine.UI.Text/text : String'
+  - 'UnityEngine.UI.Text/supportRichText : Boolean'
+  - 'UnityEngine.UI.Text/resizeTextForBestFit : Boolean'
+  - 'UnityEngine.UI.Text/resizeTextMinSize : Int32'
+  - 'UnityEngine.UI.Text/resizeTextMaxSize : Int32'
+  - 'UnityEngine.UI.Text/alignment : TextAnchor'
+  - 'UnityEngine.UI.Text/alignByGeometry : Boolean'
+  - 'UnityEngine.UI.Text/fontSize : Int32'
+  - 'UnityEngine.UI.Text/horizontalOverflow : HorizontalWrapMode'
+  - 'UnityEngine.UI.Text/verticalOverflow : VerticalWrapMode'
+  - 'UnityEngine.UI.Text/lineSpacing : Single'
+  - 'UnityEngine.UI.Text/fontStyle : FontStyle'
+  - 'UnityEngine.UI.Text/onCullStateChanged : CullStateChangedEvent'
+  - 'UnityEngine.UI.Text/maskable : Boolean'
+  - 'UnityEngine.UI.Text/color : Color'
+  - 'UnityEngine.UI.Text/raycastTarget : Boolean'
+  - 'UnityEngine.UI.Text/material : Material'
+  - 'UnityEngine.UI.Text/useGUILayout : Boolean'
+  - 'UnityEngine.UI.Text/runInEditMode : Boolean'
+  - 'UnityEngine.UI.Text/enabled : Boolean'
+  - 'UnityEngine.UI.Text/tag : String'
+  - 'UnityEngine.UI.Text/name : String'
+  - 'UnityEngine.UI.Text/hideFlags : HideFlags'
+  - 'UnityEngine.UI.TextStyleSelector/useGUILayout : Boolean'
+  - 'UnityEngine.UI.TextStyleSelector/runInEditMode : Boolean'
+  - 'UnityEngine.UI.TextStyleSelector/enabled : Boolean'
+  - 'UnityEngine.UI.TextStyleSelector/tag : String'
+  - 'UnityEngine.UI.TextStyleSelector/name : String'
+  - 'UnityEngine.UI.TextStyleSelector/hideFlags : HideFlags'
+  ModelPaths:
+  - 'Game.Account/JewelCount : Int64'
+  ModelConvertMethods:
+  - Game.LogicUtilTool/ToCountString
+  - Game.LogicUtilTool/ToLongCountString
 --- !u!1 &6543865604288646486
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +890,7 @@ RectTransform:
   m_Children:
   - {fileID: 6470416338986563080}
   - {fileID: 6469903330114791404}
+  - {fileID: 7369546295508271535}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -517,7 +915,7 @@ MonoBehaviour:
   ViewModels:
   - {fileID: 2100380974787519136}
   EventBindings:
-  - {fileID: 0}
+  - {fileID: 8087429353482599004}
   ViewControllerClasses:
   - Game.DungeonPanel
   - Game.FrameView
@@ -701,7 +1099,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 0
 --- !u!114 &6575880983196788108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +1188,7 @@ MonoBehaviour:
   - 'UnityEngine.UI.TextStyleSelector/hideFlags : HideFlags'
   ModelPaths:
   - 'Game.Account/GlodCount : Int64'
+  - 'Game.Account/JewelCount : Int64'
   ModelConvertMethods:
   - Game.LogicUtilTool/ToCountString
   - Game.LogicUtilTool/ToLongCountString

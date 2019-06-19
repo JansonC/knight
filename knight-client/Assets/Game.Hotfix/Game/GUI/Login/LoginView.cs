@@ -11,8 +11,9 @@ namespace Game
         {
             await base.OnInitialize();
             Account.Instance.PlayerName = "Knight";
-            Account.Instance.GlodCount = 999;
             Account.Instance.HeadIcon = "m1";
+            Account.Instance.GlodCount = 8000000;
+            Account.Instance.JewelCount = 1000;
         }
 
         [DataBinding]

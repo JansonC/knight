@@ -38,8 +38,7 @@ namespace Game
         private async void OnCropsBtnClick(Object obj)
         {
             Log.CI(Log.COLOR_GREEN, "点击军团按钮");
-            ViewManager.Instance.CloseAllDaynamicViews();
-            await StageManager.Instance.SwitchSatge("CropsStage");
+            await ViewManager.Instance.OpenAsync("CropsPanel", View.State.Fixing);
         }
 
         private async void OnDungeonBtnClick(Object obj)
