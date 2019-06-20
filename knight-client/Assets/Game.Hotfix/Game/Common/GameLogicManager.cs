@@ -26,6 +26,9 @@ namespace Game
             // UI模块管理器
             ViewManager.Instance.Initialize();
 
+            // 角色管理器
+            CharacterManager.Instance.Initialize();
+
             // 开始游戏Init流程
             await Init.Start_Async();
 

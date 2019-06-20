@@ -1,13 +1,7 @@
 {
-    "name": "Game",
+    "name": "Framework.Character",
     "references": [
-        "Core",
-        "Framework.AssetBundle",
-        "Framework.Hotfix",
-        "Framework.UI",
-        "Framework.Network",
-        "Framework.Stage",
-        "Framework.Character"
+        "Core"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

@@ -10,12 +10,11 @@
         "Framework.Tweening",
         "Framework.UI",
         "Game",
-        "Framework.Stage"
+        "Framework.Stage",
+        "Framework.Character"
     ],
     "optionalUnityReferences": [],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

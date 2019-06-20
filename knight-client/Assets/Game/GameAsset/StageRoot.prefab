@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3406584856354235543}
   m_Layer: 9
   m_Name: StageRoot
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

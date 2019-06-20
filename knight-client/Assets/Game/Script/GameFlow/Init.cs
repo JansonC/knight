@@ -8,6 +8,7 @@ using Knight.Framework.Hotfix;
 using System.Threading.Tasks;
 using UnityEngine.UI;
 using Knight.Framework.AssetBundles;
+using Knight.Framework.Character;
 using Knight.Framework.Stage;
 
 namespace Game
@@ -48,6 +49,9 @@ namespace Game
 
             // 初始化UI模块
             UIRoot.Instance.Initialize();
+
+            // 初始化角色管理器
+            CharacterRoot.Instance.Initialize();
 
             // 初始化加载进度条
             GameLoading.Instance.LoadingView = LoadingView_Knight.Instance;
