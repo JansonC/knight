@@ -37,14 +37,14 @@ namespace ILRuntime.Runtime.Generated
             StackObject* __ret = ILIntepreter.Minus(__esp, 2);
 
             ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.String @rViewName = (System.String)typeof(System.String).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
+            System.String @stageName = (System.String)typeof(System.String).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
             __intp.Free(ptr_of_this_method);
 
             ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
             Knight.Framework.Stage.StageAssetLoader instance_of_this_method = (Knight.Framework.Stage.StageAssetLoader)typeof(Knight.Framework.Stage.StageAssetLoader).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
             __intp.Free(ptr_of_this_method);
 
-            var result_of_this_method = instance_of_this_method.LoadStage(@rViewName);
+            var result_of_this_method = instance_of_this_method.LoadStage(@stageName);
 
             return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
         }

@@ -7,7 +7,7 @@ namespace Knight.Framework.Stage
     {
         public class LoaderRequest
         {
-            public GameObject ViewPrefabGo;
+            public GameObject StagePrefabGo;
             public string StageName;
 
             public LoaderRequest(string StageName)
@@ -21,28 +21,28 @@ namespace Knight.Framework.Stage
         }
 
         /// <summary>
-        /// 异步加载UI
+        /// 加载舞台
         /// </summary>
-        public LoaderRequest LoadStage(string rViewName)
+        public LoaderRequest LoadStage(string stageName)
         {
-            LoaderRequest rRequest = new LoaderRequest(rViewName);
+            LoaderRequest rRequest = new LoaderRequest(stageName);
             string rUIABPath = "game/stage/prefabs/" + rRequest.StageName.ToLower() + ".ab";
             var rAssetRequest = AssetLoader.Instance.LoadAsset(rUIABPath, rRequest.StageName,
                 AssetLoader.Instance.IsSumilateMode_GUI());
             if (rAssetRequest.Asset != null)
             {
-                rRequest.ViewPrefabGo = rAssetRequest.Asset as GameObject;
+                rRequest.StagePrefabGo = rAssetRequest.Asset as GameObject;
             }
 
             return rRequest;
         }
 
         /// <summary>
-        /// 卸载UI资源
+        /// 卸载舞台资源
         /// </summary>
-        public void UnloadStage(string rViewName)
+        public void UnloadStage(string stageName)
         {
-            string rUIABPath = "game/stage/prefabs/" + rViewName.ToLower() + ".ab";
+            string rUIABPath = "game/stage/prefabs/" + stageName.ToLower() + ".ab";
             AssetLoader.Instance.UnloadAsset(rUIABPath);
         }
     }

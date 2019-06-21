@@ -23,14 +23,14 @@ namespace Knight.Hotfix.Core
         public async Task<Stage> SwitchSatge(string stageName)
         {
             var loaderRequest = StageAssetLoader.Instance.LoadStage(stageName);
-            if (loaderRequest.ViewPrefabGo == null)
+            if (loaderRequest.StagePrefabGo == null)
             {
                 Log.CI(Log.COLOR_RED, "切换舞台出错，未找到预制体：{0}", stageName);
                 return null;
             }
 
             //把Stage的GameObject结点加到stageRoot下
-            GameObject stageGo = _StageRoot.transform.AddChild(loaderRequest.ViewPrefabGo, "Stage");
+            GameObject stageGo = _StageRoot.transform.AddChild(loaderRequest.StagePrefabGo, "Stage");
             Stage stage = Stage.CreateStage(stageGo);
             string stageGUID = Guid.NewGuid().ToString(); //生成GUID
             if (stage == null)

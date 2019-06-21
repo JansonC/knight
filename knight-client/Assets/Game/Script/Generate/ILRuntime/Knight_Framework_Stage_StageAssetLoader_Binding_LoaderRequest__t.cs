@@ -23,22 +23,22 @@ namespace ILRuntime.Runtime.Generated
             Type[] args;
             Type type = typeof(Knight.Framework.Stage.StageAssetLoader.LoaderRequest);
 
-            field = type.GetField("ViewPrefabGo", flag);
-            app.RegisterCLRFieldGetter(field, get_ViewPrefabGo_0);
-            app.RegisterCLRFieldSetter(field, set_ViewPrefabGo_0);
+            field = type.GetField("StagePrefabGo", flag);
+            app.RegisterCLRFieldGetter(field, get_StagePrefabGo_0);
+            app.RegisterCLRFieldSetter(field, set_StagePrefabGo_0);
 
 
         }
 
 
 
-        static object get_ViewPrefabGo_0(ref object o)
+        static object get_StagePrefabGo_0(ref object o)
         {
-            return ((Knight.Framework.Stage.StageAssetLoader.LoaderRequest)o).ViewPrefabGo;
+            return ((Knight.Framework.Stage.StageAssetLoader.LoaderRequest)o).StagePrefabGo;
         }
-        static void set_ViewPrefabGo_0(ref object o, object v)
+        static void set_StagePrefabGo_0(ref object o, object v)
         {
-            ((Knight.Framework.Stage.StageAssetLoader.LoaderRequest)o).ViewPrefabGo = (UnityEngine.GameObject)v;
+            ((Knight.Framework.Stage.StageAssetLoader.LoaderRequest)o).StagePrefabGo = (UnityEngine.GameObject)v;
         }
 
 

@@ -13,6 +13,7 @@ namespace ILRuntime.Runtime.Generated
         /// </summary>
         public static void Initialize(ILRuntime.Runtime.Enviorment.AppDomain app)
         {
+            Knight_Framework_Character_CharacterRoot_Binding.Register(app);
             System_Object_Binding.Register(app);
             System_Type_Binding.Register(app);
             System_Reflection_MemberInfo_Binding.Register(app);
@@ -168,8 +169,8 @@ namespace ILRuntime.Runtime.Generated
             Knight_Framework_Stage_StageAssetLoader_Binding_LoaderRequest_Binding.Register(app);
             Knight_Framework_Stage_StageTool_Binding.Register(app);
             System_Threading_Monitor_Binding.Register(app);
-            System_Activator_Binding.Register(app);
             System_InvalidOperationException_Binding.Register(app);
+            System_Activator_Binding.Register(app);
             System_Collections_Generic_List_1_UnityObject_Binding.Register(app);
             Knight_Framework_Hotfix_UnityObject_Binding.Register(app);
             System_Collections_Generic_List_1_Type_Binding_Enumerator_Binding.Register(app);
