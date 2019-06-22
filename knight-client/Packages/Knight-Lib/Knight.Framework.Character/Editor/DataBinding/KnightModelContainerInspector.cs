@@ -1,17 +1,17 @@
 ﻿using NaughtyAttributes.Editor;
 using UnityEditor;
 
-namespace Knight.Framework.Stage
+namespace Knight.Framework.Character
 {
-    [CustomEditor(typeof(StageControllerContainer), true)]
-    public class StageModelContainerInspector : InspectorEditor
+    [CustomEditor(typeof(KnightControllerContainer), true)]
+    public class KnightModelContainerInspector : InspectorEditor
     {
-        private StageControllerContainer mTarget;
+        private KnightControllerContainer mTarget;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            mTarget = target as StageControllerContainer;
+            mTarget = target as KnightControllerContainer;
         }
 
         public override void OnInspectorGUI()

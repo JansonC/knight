@@ -43,6 +43,10 @@ namespace Knight.Hotfix.Core
             OnClose();
         }
 
+        public virtual void AnimaEventCb(string evenName)
+        {
+        }
+
         /// <summary>
         /// 数据绑定前
         /// </summary>

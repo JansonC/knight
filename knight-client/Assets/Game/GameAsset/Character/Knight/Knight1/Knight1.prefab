@@ -1023,8 +1023,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013298157452}
   - component: {fileID: 95000011237295964}
+  - component: {fileID: 5461361005590783422}
   m_Layer: 0
-  m_Name: Knight1
+  m_Name: knight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,6 +1067,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5461361005590783422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014030545600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8f28f0c455df54fae9532c28d3bff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterControllerClass: Game.NormalKnight
+  CharacterControllerClasses:
+  - Game.NormalKnight
 --- !u!1 &1000014095517176
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,7 +7400,14 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.4
+    functionName: AnimaCb
+    data: idle end
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
 --- !u!74 &74000011601793756
 AnimationClip:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Knight.Core;
 using Knight.Framework.Character;
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace Knight.Hotfix.Core
     public class Character
     {
         public string GUID = "";
-        public string CharacterName = "";
+        public int CharacterId = 0;
         public GameObject GameObject;
         public CharacterControllerContainer CharacterControllerContainer;
         public CharacterController CharacterController;
@@ -20,52 +19,25 @@ namespace Knight.Hotfix.Core
             set { GameObject.SetActive(value); }
         }
 
-        public static T CreateCharacter<T>(GameObject characterGo) where T : Character
+        public async Task Initialize(int characterId, string characterGUID)
         {
-            if (characterGo == null)
-            {
-                return null;
-            }
-
-            Character character = new Character
-            {
-                GameObject = characterGo
-            };
-            return (T) character;
-        }
-
-        public async Task Initialize(string characterName, string characterGUID)
-        {
-            CharacterName = characterName;
+            CharacterId = characterId;
             GUID = characterGUID;
             await InitializeCharacterModel();
+            BindAnimaEvent();
         }
 
         /// <summary>
         /// 初始化ViewController
         /// </summary>
-        private async Task InitializeCharacterModel()
+        protected virtual async Task InitializeCharacterModel()
         {
-            CharacterControllerContainer = GameObject.GetComponent<CharacterControllerContainer>();
-            if (CharacterControllerContainer == null)
-            {
-                Log.CI(Log.COLOR_RED, "'{0}' 预制体没有CharacterControllerContainer脚本组件", CharacterName);
-                return;
-            }
+        }
 
-            var rType = Type.GetType(CharacterControllerContainer.CharacterControllerClass);
-            if (rType == null)
-            {
-                Log.CI(Log.COLOR_RED, "找不到对应的CharacterControllerClass, className: {0}",
-                    CharacterControllerContainer.CharacterControllerClass);
-                return;
-            }
-
-            // 构建CharacterController
-            CharacterController = HotfixReflectAssists.Construct(rType) as CharacterController;
-            CharacterController.Character = this;
-            Log.I("初始化{0}", rType.Name);
-            await CharacterController.Initialize();
+        protected void BindAnimaEvent()
+        {
+            Log.I("绑定动画事件回调");
+            CharacterControllerContainer.BindAnimaCbAction(CharacterController.AnimaEventCb);
         }
 
         /// <summary>

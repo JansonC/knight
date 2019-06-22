@@ -1,0 +1,19 @@
+{
+    "name": "Framework.Character.Editor",
+    "references": [
+        "Core",
+        "Core.Editor",
+        "Framework.Character"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

@@ -11,6 +11,7 @@ namespace Game
     {
         private GameObject cropsBtn;
         private GameObject dungeonBtn;
+        private GameObject buidlKnightBtn;
 
         protected override async Task OnInitialize()
         {
@@ -24,8 +25,10 @@ namespace Game
             Transform stageTrans = Stage.GameObject.transform;
             cropsBtn = stageTrans.Find("CropsBtn").gameObject;
             dungeonBtn = stageTrans.Find("DungeonBtn").gameObject;
+            buidlKnightBtn = stageTrans.Find("BuildKnightBtn").gameObject;
             HotfixEventManager.Instance.Binding(cropsBtn, HEventTriggerType.PointerClick, OnCropsBtnClick);
             HotfixEventManager.Instance.Binding(dungeonBtn, HEventTriggerType.PointerClick, OnDungeonBtnClick);
+            HotfixEventManager.Instance.Binding(buidlKnightBtn, HEventTriggerType.PointerClick, OnBuildKnightBtnClick);
         }
 
         protected override void OnClose()
@@ -33,6 +36,8 @@ namespace Game
             base.OnClose();
             HotfixEventManager.Instance.UnBinding(cropsBtn, HEventTriggerType.PointerClick, OnCropsBtnClick);
             HotfixEventManager.Instance.UnBinding(dungeonBtn, HEventTriggerType.PointerClick, OnDungeonBtnClick);
+            HotfixEventManager.Instance.UnBinding(buidlKnightBtn, HEventTriggerType.PointerClick,
+                OnBuildKnightBtnClick);
         }
 
         private async void OnCropsBtnClick(Object obj)
@@ -46,6 +51,12 @@ namespace Game
             Log.CI(Log.COLOR_GREEN, "点击副本按钮");
             ViewManager.Instance.CloseAllDaynamicViews();
             await StageManager.Instance.SwitchSatge("DungeonStage");
+        }
+
+        private void OnBuildKnightBtnClick(Object obj)
+        {
+            Log.CI(Log.COLOR_GREEN, "点击创建骑士");
+            CharacterManager.Instance.BuildKnight(1);
         }
     }
 }
