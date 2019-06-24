@@ -9,9 +9,9 @@
         "Framework.Network",
         "Framework.Tweening",
         "Framework.UI",
-        "Game",
         "Framework.Stage",
-        "Framework.Character"
+        "Framework.Character",
+        "Game"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

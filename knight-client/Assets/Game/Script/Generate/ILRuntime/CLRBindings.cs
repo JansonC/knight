@@ -27,11 +27,11 @@ namespace ILRuntime.Runtime.Generated
             System_Threading_Tasks_Task_Binding.Register(app);
             System_Runtime_CompilerServices_TaskAwaiter_Binding.Register(app);
             UnityEngine_Debug_Binding.Register(app);
+            System_String_Binding.Register(app);
             System_Type_Binding.Register(app);
             System_Reflection_MemberInfo_Binding.Register(app);
             Knight_Core_ICustomAttributeProviderExpand_Binding.Register(app);
             System_Reflection_CustomAttributeExtensions_Binding.Register(app);
-            System_String_Binding.Register(app);
             Knight_Core_UtilTool_Binding.Register(app);
             System_IO_File_Binding.Register(app);
             Knight_Core_WindJson_JsonParser_Binding.Register(app);
@@ -82,6 +82,7 @@ namespace ILRuntime.Runtime.Generated
             UnityEngine_Transform_Binding.Register(app);
             Knight_Core_WorldUtils_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncVoidMethodBuilder_Binding.Register(app);
+            Knight_Framework_Input_InputManager_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncTaskMethodBuilder_1_String_Binding.Register(app);
             Knight_Core_TSingleton_1_EventManager_Binding.Register(app);
             Knight_Core_EventManager_Binding.Register(app);

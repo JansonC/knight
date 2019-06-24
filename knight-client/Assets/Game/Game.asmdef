@@ -7,7 +7,8 @@
         "Framework.UI",
         "Framework.Network",
         "Framework.Stage",
-        "Framework.Character"
+        "Framework.Character",
+        "Framework.Input"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

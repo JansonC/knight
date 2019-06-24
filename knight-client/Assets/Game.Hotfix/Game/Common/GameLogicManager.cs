@@ -39,6 +39,9 @@ namespace Game
         {
             // UI的模块更新逻辑
             ViewManager.Instance.Update();
+            StageManager.Instance.Update();
+            //TODO
+            //CharacterManager.Instance.Update();
         }
     }
 }

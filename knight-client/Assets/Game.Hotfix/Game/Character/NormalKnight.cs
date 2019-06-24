@@ -1,5 +1,4 @@
-﻿using Knight.Core;
-using Knight.Hotfix.Core;
+﻿using Knight.Hotfix.Core;
 
 namespace Game
 {
@@ -7,7 +6,6 @@ namespace Game
     {
         public override void AnimaEventCb(string evenName)
         {
-            Log.I("热更新 Anima Cb, " +evenName);
         }
     }
 }

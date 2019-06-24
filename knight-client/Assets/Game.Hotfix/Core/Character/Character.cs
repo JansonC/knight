@@ -5,6 +5,17 @@ using UnityEngine;
 
 namespace Knight.Hotfix.Core
 {
+    public enum KnightStatus
+    {
+        Normal = 0,
+        Idle = 1,
+        Walking = 2,
+        Attacking = 3,
+        Taunt = 4,
+        Hurt = 5,
+        Dying = 6
+    }
+
     public class Character
     {
         public string GUID = "";
@@ -82,6 +93,11 @@ namespace Knight.Hotfix.Core
         public void Close()
         {
             CharacterController?.Closing();
+        }
+
+        public void SwitchStatus(int status)
+        {
+            CharacterControllerContainer?.SwitchAnima(status);
         }
     }
 }

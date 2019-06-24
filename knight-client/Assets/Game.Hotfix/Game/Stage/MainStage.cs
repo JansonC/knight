@@ -2,6 +2,7 @@
 using Knight.Core;
 using Knight.Framework;
 using Knight.Framework.Hotfix;
+using Knight.Framework.Input;
 using Knight.Hotfix.Core;
 using UnityEngine;
 
@@ -13,10 +14,12 @@ namespace Game
         private GameObject dungeonBtn;
         private GameObject buidlKnightBtn;
 
+        private Knight.Hotfix.Core.Knight knight;
+
         protected override async Task OnInitialize()
         {
             await base.OnInitialize();
-            ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
+            await ViewManager.Instance.OpenAsync("MainStageInfoPanel", View.State.Fixing);
         }
 
         protected override async Task OnOpen()
@@ -53,10 +56,26 @@ namespace Game
             await StageManager.Instance.SwitchSatge("DungeonStage");
         }
 
-        private void OnBuildKnightBtnClick(Object obj)
+        private async void OnBuildKnightBtnClick(Object obj)
         {
             Log.CI(Log.COLOR_GREEN, "点击创建骑士");
-            CharacterManager.Instance.BuildKnight(1);
+            knight = await CharacterManager.Instance.BuildKnight(1);
+
+        }
+
+        private int knightStatus = 1;
+        protected override void OnUpdate()
+        {
+            base.OnUpdate();
+            if (InputManager.Instance.IsKeyDown(InputKey.Jump))
+            {
+                knight?.SwitchStatus(knightStatus);
+                knightStatus++;
+                if (knightStatus > 6)
+                {
+                    knightStatus = 1;
+                }
+            }
         }
     }
 }

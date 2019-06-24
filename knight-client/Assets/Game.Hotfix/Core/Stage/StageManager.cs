@@ -8,8 +8,8 @@ namespace Knight.Hotfix.Core
 {
     public class StageManager : THotfixSingleton<StageManager>
     {
-        private GameObject _StageRoot;
-        private Stage CurStage;
+        private GameObject stageRoot;
+        private Stage curStage;
 
         private StageManager()
         {
@@ -17,7 +17,7 @@ namespace Knight.Hotfix.Core
 
         public void Initialize()
         {
-            _StageRoot = StageRoot.Instance.gameObject;
+            stageRoot = StageRoot.Instance.gameObject;
         }
 
         public async Task<Stage> SwitchSatge(string stageName)
@@ -30,7 +30,7 @@ namespace Knight.Hotfix.Core
             }
 
             //把Stage的GameObject结点加到stageRoot下
-            GameObject stageGo = _StageRoot.transform.AddChild(loaderRequest.StagePrefabGo, "Stage");
+            GameObject stageGo = stageRoot.transform.AddChild(loaderRequest.StagePrefabGo, "Stage");
             Stage stage = Stage.CreateStage(stageGo);
             string stageGUID = Guid.NewGuid().ToString(); //生成GUID
             if (stage == null)
@@ -39,11 +39,11 @@ namespace Knight.Hotfix.Core
                 return null;
             }
 
-            if (CurStage != null)
+            if (curStage != null)
             {
-                Log.CI(Log.COLOR_YELLOW, "切换舞台，移除旧的舞台：{0}", CurStage.StageName);
-                CurStage.StageController.Closing();
-                UnityEngine.Object.Destroy(CurStage.GameObject);
+                Log.CI(Log.COLOR_YELLOW, "切换舞台，移除旧的舞台：{0}", curStage.StageName);
+                curStage.StageController.Closing();
+                UnityEngine.Object.Destroy(curStage.GameObject);
             }
 
             try
@@ -56,8 +56,16 @@ namespace Knight.Hotfix.Core
                 Debug.LogException(e);
             }
 
-            CurStage = stage;
+            curStage = stage;
             return stage;
+        }
+
+        public void Update()
+        {
+            if (curStage != null)
+            {
+                curStage.Update();
+            }
         }
     }
 }
