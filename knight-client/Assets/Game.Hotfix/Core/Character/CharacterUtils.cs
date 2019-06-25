@@ -17,5 +17,19 @@ namespace Knight.Hotfix.Core
             };
             return knight;
         }
+
+        public static Monster CreateMonster(GameObject knightGo)
+        {
+            if (knightGo == null)
+            {
+                return null;
+            }
+
+            Monster monster = new Monster
+            {
+                GameObject = knightGo
+            };
+            return monster;
+        }
     }
 }

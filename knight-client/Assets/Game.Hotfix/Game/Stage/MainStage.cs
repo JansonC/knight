@@ -15,6 +15,7 @@ namespace Game
         private GameObject buidlKnightBtn;
 
         private Knight.Hotfix.Core.Knight knight;
+        private Knight.Hotfix.Core.Monster monster;
 
         protected override async Task OnInitialize()
         {
@@ -58,22 +59,23 @@ namespace Game
 
         private async void OnBuildKnightBtnClick(Object obj)
         {
-            Log.CI(Log.COLOR_GREEN, "点击创建骑士");
+            Log.CI(Log.COLOR_GREEN, "点击创建骑士|怪物");
             knight = await CharacterManager.Instance.BuildKnight(1);
-
+            //monster = await CharacterManager.Instance.BuildMonster(1);
         }
 
-        private int knightStatus = 1;
+        private int characterStatus = 1;
         protected override void OnUpdate()
         {
             base.OnUpdate();
             if (InputManager.Instance.IsKeyDown(InputKey.Jump))
             {
-                knight?.SwitchStatus(knightStatus);
-                knightStatus++;
-                if (knightStatus > 6)
+                knight?.SwitchStatus(characterStatus);
+                monster?.SwitchStatus(characterStatus);
+                characterStatus++;
+                if (characterStatus > 6)
                 {
-                    knightStatus = 1;
+                    characterStatus = 1;
                 }
             }
         }

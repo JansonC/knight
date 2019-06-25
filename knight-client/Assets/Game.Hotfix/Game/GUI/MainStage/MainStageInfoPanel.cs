@@ -10,6 +10,7 @@ namespace Game
     public class MainStageInfoPanel : ViewController
     {
         private Image userHeadImg;
+        private int headIndex = 1;
 
         protected override async Task OnOpen()
         {
@@ -25,7 +26,7 @@ namespace Game
 
             string rUIABPath = "game/gui/textures/atlas/atlas_head_icon.ab";
             var rAssetRequest =
-                AssetLoader.Instance.LoadAsset(rUIABPath, "m3", AssetLoader.Instance.IsSumilateMode_GUI());
+                AssetLoader.Instance.LoadAsset(rUIABPath, "m" + headIndex, AssetLoader.Instance.IsSumilateMode_GUI());
             if (rAssetRequest.Asset != null)
             {
                 Texture2D texture = rAssetRequest.Asset as Texture2D;
@@ -37,6 +38,11 @@ namespace Game
                     if (sprite != null)
                     {
                         userHeadImg.sprite = sprite;
+                        headIndex++;
+                        if (headIndex>15)
+                        {
+                            headIndex = 1;
+                        }
                     }
                 }
             }

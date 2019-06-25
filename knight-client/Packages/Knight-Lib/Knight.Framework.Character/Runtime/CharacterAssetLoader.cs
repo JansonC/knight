@@ -30,7 +30,7 @@ namespace Knight.Framework.Character
         public LoaderRequest LoadMonster(int monsterId)
         {
             string monsterName = "monster" + monsterId;
-            string monsterABPath = "game/character/knight/" + monsterName + ".ab";
+            string monsterABPath = "game/character/monster/" + monsterName + ".ab";
             return LoadCharacter(monsterName, monsterABPath);
         }
 
