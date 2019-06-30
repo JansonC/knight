@@ -161,8 +161,7 @@ namespace DG.Tweening
         }
 
         /// <summary>Sets the tween in a backwards direction and plays it</summary>
-        public static void PlayBackwards(this Tween t)
-        {
+        public static void PlayBackwards(this Tween t) {
             if (t == null) {
                 if (Debugger.logPriority > 1) Debugger.LogNullTween(t); return;
             } else if (!t.active) {
@@ -170,7 +169,7 @@ namespace DG.Tweening
             } else if (t.isSequenced) {
                 if (Debugger.logPriority > 1) Debugger.LogNestedTween(t); return;
             }
-
+            
             TweenManager.PlayBackwards(t);
         }
 

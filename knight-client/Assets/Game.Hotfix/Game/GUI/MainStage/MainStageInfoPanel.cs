@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Knight.Core;
-using Knight.Framework.Stage;
+using Knight.Framework.Tweening;
 using Knight.Hotfix.Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,16 +11,23 @@ namespace Game
     {
         private Image userHeadImg;
         private int headIndex = 1;
+        private GameObject cropsMgrGroup;
+        private ScaleTweening cropsMgrGroupTA;
+        private bool isTARevert = false;
 
         protected override async Task OnOpen()
         {
             await base.OnOpen();
             Transform view = View.GameObject.transform;
             userHeadImg = view.Find("HeadGroup/UserHeadImg").GetComponent<Image>();
+            cropsMgrGroup = view.Find("CropsMgrGroup").gameObject;
+            cropsMgrGroupTA = cropsMgrGroup.GetComponent<ScaleTweening>();
+            cropsMgrGroupTA.SetCompleted(OnCropsMgrGroupTAComplete);
+            cropsMgrGroupTA.SetRewind(OnCropsMgrGroupTAComplete);
         }
 
         [DataBinding]
-        private void OnHeadImgClicked(EventArg rEventArg)
+        private void OnHeadImgClicked(EventArg eventArg)
         {
             Log.CI(Log.COLOR_ORANGE, "点击头像");
 
@@ -39,13 +46,40 @@ namespace Game
                     {
                         userHeadImg.sprite = sprite;
                         headIndex++;
-                        if (headIndex>15)
+                        if (headIndex > 15)
                         {
                             headIndex = 1;
                         }
                     }
                 }
             }
+        }
+
+        [DataBinding]
+        private void OnCropsMgrBtnClicked(EventArg eventArg)
+        {
+            if (cropsMgrGroup.activeSelf)
+            {
+                isTARevert = true;
+                cropsMgrGroupTA.Revert();
+            }
+            else
+            {
+                isTARevert = false;
+                cropsMgrGroup.SetActive(true);
+                cropsMgrGroupTA.Play();
+            }
+        }
+
+        private void OnCropsMgrGroupTAComplete()
+        {
+            cropsMgrGroup.SetActive(!isTARevert);
+        }
+
+        [DataBinding]
+        private void OnKnightMgrBtnClick(EventArg eventArg)
+        {
+            Log.I("点击骑士管理按钮");
         }
     }
 }

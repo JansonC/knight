@@ -71,6 +71,8 @@ namespace Knight.Framework.Tweening.Editor
                     EditorGUIUtility.labelWidth = 120;
                 }
 
+                EditorGUILayout.PropertyField(this.serializedObject.FindProperty("IsAutoKill"));
+
                 using (var rHorizontalScope = new EditorGUILayout.HorizontalScope())
                 {
                     EditorGUILayout.PropertyField(this.serializedObject.FindProperty("Duration"), GUILayout.Width(170));
